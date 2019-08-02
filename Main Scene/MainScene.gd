@@ -31,14 +31,13 @@ func _drunkard_walk():
 	var direction = dirArray[randi()%dirArray.size()]
 	if direction == "North":
 		posY -= 1
-		abs(posY)
+		if posY < 0:
+			abs(posY)
 	elif direction == "South":
 		posY += 1
-		abs(posY)
 	elif direction == "East":
 		posX += 1
-		abs(posX)
 	elif direction == "West":
-		posX -= 1
-		abs(posX)
+		if posX < 0:
+			abs(posX)
 	_drunkard_walk()
