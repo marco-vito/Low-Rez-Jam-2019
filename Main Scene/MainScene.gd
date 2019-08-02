@@ -9,7 +9,7 @@ var dirArray = ["North", "South", "East", "West"]
 
 func _ready():
 	randomize()
-	_drunkard_walk()
+	_drunkard_walk(16, 16, 3)
 
 func _set_array(array):
 	for x in range(width):
@@ -23,21 +23,22 @@ func _draw_tiles(array):
 		for y in range(height):
 			$TileMap.set_cell(x, y, array[x][y])
 
-func _drunkard_walk():
-	if posX > 16 or posY > 16:
-		return
-	if $TileMap.get_cell(posX, posY) != 0:
-		$TileMap.set_cell(posX, posY, 0)	
-	var direction = dirArray[randi()%dirArray.size()]
-	if direction == "North":
-		posY -= 1
-		if posY < 0:
-			abs(posY)
-	elif direction == "South":
-		posY += 1
-	elif direction == "East":
-		posX += 1
-	elif direction == "West":
-		if posX < 0:
-			abs(posX)
-	_drunkard_walk()
+func _drunkard_walk(columns, rows, size):
+	posX = randi()%(columns+1)
+	posY = randi()%(rows+1)
+	while size > 0:
+		if $TileMap.get_cell(posX, posY) != 0:
+			$TileMap.set_cell(posX, posY, 0)
+			size -= 1
+		var direction = dirArray[randi()%dirArray.size()]
+		if direction == "North":
+			posY -= 1
+			if posY < 0:
+				abs(posY)
+		elif direction == "South":
+			posY += 1
+		elif direction == "East":
+			posX += 1
+		elif direction == "West":
+			if posX < 0:
+				abs(posX)
