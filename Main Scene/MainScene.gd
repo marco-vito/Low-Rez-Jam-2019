@@ -24,10 +24,10 @@ func _draw_tiles(array):
 			$TileMap.set_cell(x, y, array[x][y])
 
 func _drunkard_walk():
-	if posX > 4 or posY > 4:
+	if posX > 16 or posY > 16:
 		return
-	if $TileMap.get_cell(posX, posY) != 5:
-		$TileMap.set_cell(posX, posY, 5)	
+	if $TileMap.get_cell(posX, posY) != 0:
+		$TileMap.set_cell(posX, posY, 0)	
 	var direction = dirArray[randi()%dirArray.size()]
 	if direction == "North":
 		posY -= 1
