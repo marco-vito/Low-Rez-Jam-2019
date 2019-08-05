@@ -4,10 +4,10 @@ const SPEED = 200
 
 func _input(event):
 	if event.is_action_pressed("ui_left"):
-		direction = LEFT
+		direction = Vector2(dirX[Directions.LEFT], dirY[Directions.LEFT])
 	elif event.is_action_pressed("ui_right"):
-		direction = RIGHT
+		direction = Vector2(dirX[Directions.RIGHT], dirY[Directions.RIGHT])
 	elif event.is_action_pressed("ui_up"):
-		direction = UP
+		direction = Vector2(dirX[Directions.UP], dirY[Directions.UP])
 	elif event.is_action_pressed("ui_down"):
-		direction = DOWN
+		direction = Vector2(dirX[Directions.DOWN], dirY[Directions.DOWN])

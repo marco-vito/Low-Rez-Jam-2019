@@ -4,6 +4,8 @@ extends KinematicBody2D
 var dirX = [-16, 16, 0, 0]
 var dirY = [0, 0, 16, -16]
 
+enum Directions {UP, DOWN, RIGHT, LEFT}
+
 var direction = Vector2(0,0)
 
 #Function to add four raycasts, which will check for collisions with walls before each grid-based movement
