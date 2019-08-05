@@ -1,11 +1,5 @@
 extends KinematicBody2D
 
-#This variables are used to control entities movement direction
-const LEFT = Vector2(-16,0)
-const RIGHT = Vector2(16,0)
-const UP = Vector2(0,-16)
-const DOWN = Vector2(0,16)
-
 #Arrays to control the direction of movement and raycasts. [North, South, East, West].
 var dirX = [-16, 16, 0, 0]
 var dirY = [0, 0, 16, -16]
