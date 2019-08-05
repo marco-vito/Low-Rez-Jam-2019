@@ -1,4 +1,4 @@
-extends "res://Entity.gd"
+extends "res://Entities/Entity.gd"
 
 const SPEED = 200
 
