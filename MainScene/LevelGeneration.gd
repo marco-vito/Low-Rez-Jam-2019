@@ -20,7 +20,7 @@ func _ready():
 func _generate_floor_map():
 	var map : Array = _initialize_2D_array(width, height, Tiles.WALLS)
 	_set_random_paths(map, randi()%(width-1), randi()%(height-1), 7, 5)
-	_set_random_rooms(map, randi()%(width-1), randi()%(height-1), 5, 6)
+	_set_random_rooms(map, 4, 8, 5)
 	return map 
 
 func _initialize_2D_array(sizeX, sizeY, defaultValue):
@@ -47,19 +47,22 @@ func _set_random_paths(array, startX, startY, steps, paths):
 		return
 	_set_random_paths(array, randi()%(array.size()-1), randi()%(array[x].size()-1), initialSteps, paths)
 	
-func _set_random_rooms(array, startX, startY, maxSize, rooms):
+func _set_random_rooms(array, minSize, maxSize, count):
+	for c in count:
+		var x = randi()%(array.size()-1)
+		var y = randi()%(array[x].size()-1)
+		var width = randi()%(maxSize-minSize)+minSize
+		var height = randi()%(maxSize-minSize)+minSize
+		_create_room(array, x, y, width, height)
+
+func _create_room(array, startX, startY, width, height):
 	var x = startX
 	var y = startY
-	var sizeX = randi()%(maxSize-1)+1
-	var sizeY = randi()%(maxSize-1)+1
-	for w in range(sizeX):
+	for w in range(width):
 		x = clamp(x+1, 0, array.size()-1)
 		y = startY
-		for h in range(sizeY):
+		for h in range(height):
 			if array[x][y] != Tiles.FLOOR:
 				array[x][y] = Tiles.FLOOR
 				y = clamp(y+1, 0, array[x].size()-1)
-	rooms -= 1
-	if rooms <= 0:
-		return
-	_set_random_rooms(array, randi()%(array.size()-1), randi()%(array[x].size()-1), maxSize, rooms)
+
