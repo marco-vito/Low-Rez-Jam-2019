@@ -10,13 +10,20 @@ func _ready():
 
 func _physics_process(delta):
 	check_movement()
+	check_interaction()
 	match state:
 		States.IDLE:
 			_set_anim("idle")
 		States.MOVING:
 			move()
 			_set_anim("walk")
-	
+
+func check_interaction():
+	if Input.is_action_just_pressed("interact"):
+		for area in $InteractionArea.get_overlapping_areas():
+			if area.get_owner().is_in_group("interactable") :
+				area.get_owner().interact(self)
+
 func check_movement():
 	if Input.is_action_pressed("ui_left"):
 		direction = Vector2(dirX[Directions.LEFT], dirY[Directions.LEFT])

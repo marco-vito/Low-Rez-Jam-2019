@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Entities/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Head.png" type="Texture" id=2]
@@ -604,6 +604,9 @@ tracks/11/keys = {
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 5.56575, 11.0205 )
 
+[sub_resource type="CircleShape2D" id=6]
+radius = 14.0
+
 [node name="KinematicBody2D" type="KinematicBody2D"]
 position = Vector2( 32.3681, 32.4074 )
 script = ExtResource( 1 )
@@ -651,3 +654,8 @@ position = Vector2( -0.815628, -3.67033 )
 shape = SubResource( 5 )
 
 [node name="Camera" parent="." instance=ExtResource( 8 )]
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource( 6 )
