@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SlateSign.png-1d380aae5ab76f6c2cdf3effb4f90e93.stex"
+path="res://.import/SlateSign.png-f576c1bd27fc2ea3aae8bef1ec9bb191.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Slate/SlateSign.png"
-dest_files=[ "res://.import/SlateSign.png-1d380aae5ab76f6c2cdf3effb4f90e93.stex" ]
+source_file="res://Objects/GeneralUseObjects/Signal/SlateSign.png"
+dest_files=[ "res://.import/SlateSign.png-f576c1bd27fc2ea3aae8bef1ec9bb191.stex" ]
 
 [params]
 

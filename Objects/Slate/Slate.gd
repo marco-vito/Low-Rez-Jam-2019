@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends "res://Objects/GeneralUseObjects/Interactable/Interactable.gd"
 
 #Variable to control if the object is on the light or not
 var illuminated : bool = false setget _SetIlluminated
