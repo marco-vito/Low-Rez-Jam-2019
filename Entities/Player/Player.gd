@@ -1,9 +1,8 @@
 extends "res://Entities/Entity.gd"
 
-var animDirection = "right"
-
 enum States {IDLE, MOVING}
 var state = States.IDLE
+enum animations {IDLE, WALK}
 
 func _ready():
 	add_to_group("player")
@@ -13,10 +12,10 @@ func _physics_process(delta):
 	check_movement()
 	match state:
 		States.IDLE:
-			_set_anim("idle")
+			$Sprites/AnimationPlayer.play("idle")
 		States.MOVING:
 			move()
-			_set_anim("walk")
+			$Sprites/AnimationPlayer.play("walk")
 
 func check_interaction():
 	if Input.is_action_just_pressed("interact"):
@@ -27,14 +26,11 @@ func check_interaction():
 func check_input():
 	direction.x = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
 	direction.y = -int(Input.is_action_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
+	if direction.x != 0:
+		$Sprites.scale.x = -direction.x
 	
 func check_movement():
 	if direction != Vector2(0,0):
 		state = States.MOVING
 	else:
 		state = States.IDLE
-
-func _set_anim(animation):
-	var newAnim = str(animation, animDirection)
-	if $Sprites/AnimationPlayer.current_animation != newAnim:
-		$Sprites/AnimationPlayer.play(newAnim)
