@@ -6,7 +6,10 @@ const SPEED = 20
 var dirX = [0, 0, 16, -16]
 var dirY = [-16, 16, 0, 0]
 
-enum Directions {UP, DOWN, RIGHT, LEFT}
+var directions = {"up": Vector2(0,-16),
+				"down": Vector2(0,16),
+				"left": Vector2(16,0),
+				"right": Vector2(-16,0)}
 
 var direction = Vector2(0,0)
 

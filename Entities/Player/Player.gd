@@ -9,8 +9,8 @@ func _ready():
 	add_to_group("player")
 
 func _physics_process(delta):
+	check_input()
 	check_movement()
-	check_interaction()
 	match state:
 		States.IDLE:
 			_set_anim("idle")
@@ -24,21 +24,25 @@ func check_interaction():
 			if area.get_owner().is_in_group("interactable") :
 				area.get_owner().interact(self)
 
-func check_movement():
+func check_input():
 	if Input.is_action_pressed("ui_left"):
-		direction = Vector2(dirX[Directions.LEFT], dirY[Directions.LEFT])
+		direction = directions["left"]
 		animDirection = "left"
 	elif Input.is_action_pressed("ui_right"):
-		direction = Vector2(dirX[Directions.RIGHT], dirY[Directions.RIGHT])
+		direction = directions["right"]
 		animDirection = "right"
-	elif Input.is_action_pressed("ui_up"):
-		direction = Vector2(dirX[Directions.UP], dirY[Directions.UP])
+	if Input.is_action_pressed("ui_up"):
+		direction = directions["up"]
 		animDirection = "right"
 	elif Input.is_action_pressed("ui_down"):
-		direction = Vector2(dirX[Directions.DOWN], dirY[Directions.DOWN])
+		direction = directions["down"]
 		animDirection = "right"
 	else:
 		direction = Vector2(0,0)
+	if direction != Vector2(0,0):
+		print(direction)
+		
+func check_movement():
 	if direction != Vector2(0,0):
 		state = States.MOVING
 	else:

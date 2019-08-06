@@ -27,7 +27,7 @@ position = Vector2( 144.304, 124.943 )
 current = true
 zoom = Vector2( 4, 4 )
 
-[node name="KinematicBody2D" parent="." instance=ExtResource( 6 )]
+[node name="Player" parent="." instance=ExtResource( 6 )]
 position = Vector2( 126.426, 46.1242 )
 
 [node name="Slate" parent="." instance=ExtResource( 7 )]
