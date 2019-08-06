@@ -9,7 +9,7 @@ func _ready():
 	add_to_group("player")
 
 func _physics_process(delta):
-	check_input()
+	check_movement()
 	match state:
 		States.IDLE:
 			_set_anim("idle")
@@ -17,7 +17,7 @@ func _physics_process(delta):
 			move()
 			_set_anim("walk")
 	
-func check_input():
+func check_movement():
 	if Input.is_action_pressed("ui_left"):
 		direction = Vector2(dirX[Directions.LEFT], dirY[Directions.LEFT])
 		animDirection = "left"

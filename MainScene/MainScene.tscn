@@ -4,7 +4,7 @@
 [ext_resource path="res://Levels/TileMaps/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/TileMaps/WallsTileMap.tres" type="TileSet" id=3]
 [ext_resource path="res://Levels/TileMaps/FloorTileMap.tres" type="TileSet" id=4]
-[ext_resource path="res://GeneralUseObjects/Camera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/GeneralUseObjects/Camera.tscn" type="PackedScene" id=5]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource( 1 )
