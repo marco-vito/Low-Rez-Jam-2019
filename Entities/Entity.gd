@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-const SPEED = 20
+const SPEED = 40
 
 #Arrays, enum and var to control the direction of movement and raycasts. [North, South, East, West].
 var dirX = [0, 0, 16, -16]
