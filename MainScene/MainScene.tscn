@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://MainScene/LevelGeneration.gd" type="Script" id=1]
 [ext_resource path="res://Levels/TileMaps/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/TileMaps/WallsTileMap.tres" type="TileSet" id=3]
 [ext_resource path="res://Levels/TileMaps/FloorTileMap.tres" type="TileSet" id=4]
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Slate/Slate0.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/GeneralUseObjects/Interactable/Interactable.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Slate/Slate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=7]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -27,11 +26,8 @@ position = Vector2( 144.304, 124.943 )
 current = true
 zoom = Vector2( 4, 4 )
 
-[node name="Player" parent="." instance=ExtResource( 6 )]
-position = Vector2( 126.426, 46.1242 )
+[node name="Slate" parent="." instance=ExtResource( 6 )]
+position = Vector2( 202.031, 70.304 )
 
-[node name="Slate" parent="." instance=ExtResource( 7 )]
-position = Vector2( 225.855, 30.6999 )
-
-[node name="Interactable" parent="." instance=ExtResource( 8 )]
-position = Vector2( 62.6761, 40.1571 )
+[node name="Player" parent="." instance=ExtResource( 7 )]
+position = Vector2( 132.897, 117.983 )

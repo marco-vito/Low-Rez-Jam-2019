@@ -7,13 +7,13 @@ func _ready():
 	$PromptArea/CollisionShape2D.disabled = true
 	$Sprite/StaticBody2D/CollisionShape2D.disabled = true
 	$CanvasLayer/RichTextLabel.visible = false
-	$Slate.texture.region.size.y = 0
+	$Sprite.texture.region.size.y = 0
 	$Signal.connect("used", self, "_setSlate")
 
 #Function to unborrow the Slate
 func _setSlate():
-	while $Slate.texture.region.size.y < 32:
-		$Slate.texture.region.size.y += 1
+	while $Sprite.texture.region.size.y < 32:
+		$Sprite.texture.region.size.y += 1
 	$Sprite/StaticBody2D/CollisionShape2D.disabled = false
 	$PromptArea/CollisionShape2D.disabled = false
 
