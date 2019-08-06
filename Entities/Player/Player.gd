@@ -25,23 +25,9 @@ func check_interaction():
 				area.get_owner().interact(self)
 
 func check_input():
-	if Input.is_action_pressed("ui_left"):
-		direction = directions["left"]
-		animDirection = "left"
-	elif Input.is_action_pressed("ui_right"):
-		direction = directions["right"]
-		animDirection = "right"
-	if Input.is_action_pressed("ui_up"):
-		direction = directions["up"]
-		animDirection = "right"
-	elif Input.is_action_pressed("ui_down"):
-		direction = directions["down"]
-		animDirection = "right"
-	else:
-		direction = Vector2(0,0)
-	if direction != Vector2(0,0):
-		print(direction)
-		
+	direction.x = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
+	direction.y = -int(Input.is_action_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
+	
 func check_movement():
 	if direction != Vector2(0,0):
 		state = States.MOVING
