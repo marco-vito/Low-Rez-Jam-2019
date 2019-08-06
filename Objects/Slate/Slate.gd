@@ -10,7 +10,7 @@ var isSign = true
 var interacting = true
 
 func _ready():
-	$CanvasLayer.visible = false
+	$CanvasLayer/RichTextLabel.visible = false
 	$Slate.texture.region.size.y = 0
 
 #Function to control if the sign is visible or not. It should only be visible in the dark.
@@ -32,9 +32,9 @@ func _setSlate():
 
 #Function to show text:
 func _read():
-	$CanvasLayer.visible = true
+	$CanvasLayer/RichTextLabel.visible = true
 	if Input.is_action_pressed("interact"):
-		$CanvasLayer.visible = false
+		$CanvasLayer/RichTextLabel.visible = false
 		interacting = true
 		
 #Function to interact:
