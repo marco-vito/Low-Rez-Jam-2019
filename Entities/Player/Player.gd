@@ -1,6 +1,6 @@
 extends "res://Entities/Entity.gd"
 
-var animDirection
+var animDirection = "right"
 
 enum States {IDLE, MOVING}
 var state = States.IDLE
@@ -24,12 +24,14 @@ func check_input():
 	elif Input.is_action_pressed("ui_right"):
 		direction = Vector2(dirX[Directions.RIGHT], dirY[Directions.RIGHT])
 		animDirection = "right"
-	if Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("ui_up"):
 		direction = Vector2(dirX[Directions.UP], dirY[Directions.UP])
 		animDirection = "right"
 	elif Input.is_action_pressed("ui_down"):
 		direction = Vector2(dirX[Directions.DOWN], dirY[Directions.DOWN])
 		animDirection = "right"
+	else:
+		direction = Vector2(0,0)
 	if direction != Vector2(0,0):
 		state = States.MOVING
 	else:
