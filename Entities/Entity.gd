@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+const SPEED = 20
+
 #Arrays, enum and var to control the direction of movement and raycasts. [North, South, East, West].
 var dirX = [0, 0, 16, -16]
 var dirY = [-16, 16, 0, 0]
@@ -19,4 +21,5 @@ func set_raycasts():
 		NewRaycast.add_to_group("raycasts")
 
 func move():
-	move_and_slide(direction, Vector2(0,0))
+	var velocity = direction.normalized() * SPEED
+	move_and_slide(velocity, Vector2(0,0))
