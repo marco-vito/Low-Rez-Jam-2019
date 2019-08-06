@@ -1,3 +1,14 @@
-[gd_scene format=2]
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Slate/Slate.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Objects/GeneralUseObjects/Camera.tscn" type="PackedScene" id=3]
 
 [node name="Test" type="Node2D"]
+
+[node name="Slate" parent="." instance=ExtResource( 1 )]
+position = Vector2( 15, 17 )
+
+[node name="KinematicBody2D" parent="." instance=ExtResource( 2 )]
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
