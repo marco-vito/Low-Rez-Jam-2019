@@ -13,6 +13,7 @@ func _physics_process(delta):
 	match state:
 		States.IDLE:
 			$Sprites/AnimationPlayer.play("idle")
+			check_interaction()
 		States.MOVING:
 			move()
 			$Sprites/AnimationPlayer.play("walk")

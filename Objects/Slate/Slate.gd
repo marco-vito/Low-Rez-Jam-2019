@@ -1,40 +1,26 @@
 extends "res://Objects/GeneralUseObjects/Interactable/Interactable.gd"
 
-#Variable to control if the object is still a sign or if the Slate was already unborrowed
-var isSign = true
-
-#Variable to stop the player from interacting with the same object more than once
-var interacting = true
+#variable to control if the interaction should show the text or hide it
+var interactable = true
 
 func _ready():
+	$PromptArea/CollisionShape2D.disabled = true
+	$Sprite/StaticBody2D/CollisionShape2D.disabled = true
 	$CanvasLayer/RichTextLabel.visible = false
 	$Slate.texture.region.size.y = 0
+	$Signal.connect("used", self, "_setSlate")
 
-#Function to unborrow the Slate and make the sign disappear
+#Function to unborrow the Slate
 func _setSlate():
 	while $Slate.texture.region.size.y < 32:
 		$Slate.texture.region.size.y += 1
-	isSign = false
-	$CollisionShape2D.disabled = false
-	interacting = true
+	$Sprite/StaticBody2D/CollisionShape2D.disabled = false
+	$PromptArea/CollisionShape2D.disabled = false
 
-#Function to show text:
-func _read():
-	$CanvasLayer/RichTextLabel.visible = true
-	if Input.is_action_pressed("interact"):
+func _on_interact(trigger):
+	if interactable:
+		interactable = false
+		$CanvasLayer/RichTextLabel.visible = true
+	else:
 		$CanvasLayer/RichTextLabel.visible = false
-		interacting = true
-		
-#Function to interact:
-func _interact():
-	if interacting:
-		interacting = false
-		if isSign:
-			_setSlate()
-		else:
-			_read()
-
-func _on_InteractableArea_body_entered(body):
-	if body.get_name() == "Player":
-		if Input.is_action_pressed("interact"):
-			_interact()
+		interactable = true
