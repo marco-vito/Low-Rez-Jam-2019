@@ -1,6 +1,6 @@
 extends "res://Objects/GeneralUseObjects/Interactable/Interactable.gd"
 
-signal used
+export (PackedScene) var toInstanciated
 
 #Variable to control if the object is on the light or not
 var illuminated : bool = false setget _SetIlluminated
@@ -14,5 +14,6 @@ func _SetIlluminated(parameter : bool):
 		$Sign.visible = true
 
 func _on_interact(trigger):
-	emit_signal("used")
+	var object = toInstanciated.instance()
+	get_parent().add_child(object)
 	queue_free()
