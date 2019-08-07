@@ -7,7 +7,7 @@
 [ext_resource path="res://Levels/TileMaps/FloorTileMap.tres" type="TileSet" id=5]
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://light128.png" type="Texture" id=8]
+[ext_resource path="res://MainScene/light128.png" type="Texture" id=8]
 [ext_resource path="res://Objects/Slate/Slate.tscn" type="PackedScene" id=9]
 
 [node name="Main Scene" type="Node2D"]
