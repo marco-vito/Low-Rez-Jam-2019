@@ -10,6 +10,8 @@ func _ready():
 func _process(delta):
 	if $Sprite.texture.region.size.y < 32:
 		$Sprite.texture.region.size.y += 1
+	else:
+		$LightOccluder2D.visible = true
 
 func _on_interact(trigger):
 	if interactable:

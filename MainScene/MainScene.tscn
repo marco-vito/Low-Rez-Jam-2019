@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://MainScene/LevelGeneration.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -8,7 +8,8 @@
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://MainScene/light128.png" type="Texture" id=8]
-[ext_resource path="res://Objects/Slate/Slate.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/GeneralUseObjects/Symbol/Symbol.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Slate/Slate.tscn" type="PackedScene" id=10]
 
 [node name="Main Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -48,14 +49,17 @@ energy = 1.5
 shadow_enabled = true
 shadow_color = Color( 0.282353, 0.282353, 0.282353, 0 )
 
-[node name="Slate" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( 204.087, 67.4576 )
+[node name="Signal" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 131.805, 62.7569 )
+toInstanciated = ExtResource( 10 )
 
-[node name="Slate2" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( 173.75, 49.8817 )
+[node name="Signal2" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 98.6345, 64.21 )
+toInstanciated = ExtResource( 10 )
 
-[node name="Slate3" parent="YSort" instance=ExtResource( 9 )]
-position = Vector2( 240.683, 81.422 )
+[node name="Signal3" parent="YSort" instance=ExtResource( 9 )]
+position = Vector2( 171.292, 79.6512 )
+toInstanciated = ExtResource( 10 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0, 0, 0, 1 )
