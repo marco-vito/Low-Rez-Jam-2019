@@ -5,6 +5,10 @@ export (PackedScene) var toInstanciated
 #Variable to control if the object is on the light or not
 var illuminated : bool = false setget _SetIlluminated
 
+func _ready():
+	if toInstanciated == preload("res://Objects/Exit/Exit.tscn"):
+		add_to_group("exit")
+
 #Function to control if the sign is visible or not. It should only be visible in the dark.
 func _SetIlluminated(parameter : bool):
 	illuminated = parameter
