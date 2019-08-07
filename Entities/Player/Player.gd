@@ -3,6 +3,7 @@ extends "res://Entities/Entity.gd"
 enum States {IDLE, MOVING}
 var state = States.IDLE
 enum animations {IDLE, WALK}
+var battery
 
 func _ready():
 	add_to_group("player")
@@ -35,3 +36,6 @@ func check_movement():
 		state = States.MOVING
 	else:
 		state = States.IDLE
+
+func recharge_battery():
+	pass
