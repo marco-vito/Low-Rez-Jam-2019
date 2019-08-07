@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Objects/GeneralUseObjects/Interactable/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Objects/RechargeStation/RechargeStation.gd" type="Script" id=2]
+[ext_resource path="res://Objects/GeneralUseObjects/BasicSprite/BasicSprite.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/RechargeStation/Station.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 14.4731, 5.16005 )
+
+[node name="RechargeStation" instance=ExtResource( 1 )]
+position = Vector2( 29.2307, 31.0576 )
+script = ExtResource( 2 )
+
+[node name="BasicSprite" parent="." index="1" instance=ExtResource( 3 )]
+editor/display_folded = true
+position = Vector2( -0.263519, -14.4936 )
+texture = ExtResource( 4 )
+vframes = 3
+hframes = 2
+vfr = 3
+hfr = 2
+frctn = 6
+speed = 0.2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="BasicSprite" index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicSprite/StaticBody2D" index="0"]
+position = Vector2( -0.426287, 9.0373 )
+shape = SubResource( 1 )
