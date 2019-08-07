@@ -9,12 +9,12 @@ var dirX = [-1, 1, 0, 0]
 var dirY = [0, 0, 1, -1]
 
 #Enum to control layers of tilesets
-enum Tiles {FLOOR = 0, WALLS = -1}
+enum Tiles {FLOOR = 0, WALLS = 1}
 
 func _ready():
 	randomize()
 	var mapArray = _generate_floor_map()
-	_2D_array_to_tilemap(mapArray, $TileMap2)
+	_2D_array_to_tilemap(mapArray, $TileMapFloor, $TileMapWalls)
 	for row in mapArray:
 		print(row)
 
@@ -69,7 +69,10 @@ func _create_room(array, startX, startY, width, height):
 				array[x][y] = Tiles.FLOOR
 				y = clamp(y+1, 0, array[x].size()-1)
 
-func _2D_array_to_tilemap(array, tilemap):
+func _2D_array_to_tilemap(array, tilemap1, tilemap2):
 	for x in range(array.size()):
 		for y in range(array[x].size()):
-			tilemap.set_cell(x,y, array[x][y])
+			if array[x][y] == 1:
+				tilemap2.set_cell(x,y, 2)
+			else:
+				tilemap1.set_cell(x,y, 0)
