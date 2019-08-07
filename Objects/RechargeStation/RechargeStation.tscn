@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.4731, 5.16005 )
 
-[node name="RechargeStation" instance=ExtResource( 1 )]
+[node name="RechargeStation" index="0" instance=ExtResource( 1 )]
 position = Vector2( 29.2307, 31.0576 )
 script = ExtResource( 2 )
 
