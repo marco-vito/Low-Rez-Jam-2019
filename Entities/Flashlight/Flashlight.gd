@@ -20,7 +20,7 @@ func _input(event):
 			$Timer.stop()
 
 func _change_direction():
-	offset = player.global_position
+	#offset = player.global_position
 	look_at(get_global_mouse_position())
 
 func _depleate_battery():
