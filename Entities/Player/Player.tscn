@@ -227,7 +227,7 @@ shape = SubResource( 3 )
 
 [node name="Camera" parent="." instance=ExtResource( 8 )]
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 4, 4 )
 
 [node name="InteractionArea" type="Area2D" parent="."]
 __meta__ = {
