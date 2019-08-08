@@ -238,5 +238,6 @@ __meta__ = {
 shape = SubResource( 4 )
 
 [node name="Flashlight" parent="." instance=ExtResource( 9 )]
-offset = Vector2( 0, -20 )
-shadow_gradient_length = 1.0
+offset = Vector2( 0, -60 )
+energy = 1.0
+shadow_gradient_length = 0.3
