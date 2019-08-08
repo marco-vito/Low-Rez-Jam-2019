@@ -1,11 +1,12 @@
 extends "res://Entities/Entity.gd"
 
+signal recharged
+
 enum States {IDLE, MOVING}
 var state = States.IDLE
 enum animations {IDLE, WALK}
-var battery
 
-func _ready():
+func _init():
 	add_to_group("player")
 
 func _physics_process(delta):
@@ -38,4 +39,4 @@ func check_movement():
 		state = States.IDLE
 
 func recharge_battery():
-	pass
+	emit_signal("recharged")

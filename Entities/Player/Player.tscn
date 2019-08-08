@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Entities/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Head.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Entities/Player/Foot Back.png" type="Texture" id=6]
 [ext_resource path="res://Entities/Player/Foot Front.png" type="Texture" id=7]
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Entities/Flashlight/Flashlight.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -236,3 +237,6 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource( 4 )
+
+[node name="Flashlight" parent="." instance=ExtResource( 9 )]
+position = Vector2( -0.407814, -24.0611 )
