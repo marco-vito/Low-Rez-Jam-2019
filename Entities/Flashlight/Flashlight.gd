@@ -1,14 +1,16 @@
 extends Light2D
 
-export var battery = 10
+export var battery = 12
 onready var player = get_tree().get_nodes_in_group("player")[0]
 
 func _ready():
 	player.connect("recharged", self, "_recharge_battery")
 	$Timer.connect("timeout", self, "_depleate_battery")
+	$Timer.start()
 
 func _process(delta):
 	_change_direction()
+	$CanvasLayer/TextureProgress.value = battery
 
 func _input(event):
 	if event.is_action_pressed("light"):
@@ -30,4 +32,4 @@ func _depleate_battery():
 		$Timer.stop()
 	
 func _recharge_battery():
-	battery = 10
+	battery = 12
