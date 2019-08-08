@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Entities/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Head.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Entities/Player/Foot Front.png" type="Texture" id=7]
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/Flashlight/Flashlight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/Crystal/CrystalLight.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -226,7 +227,13 @@ shape = SubResource( 3 )
 
 [node name="Camera" parent="." instance=ExtResource( 8 )]
 current = true
-zoom = Vector2( 4, 4 )
+zoom = Vector2( 2, 2 )
+limit_left = 0
+limit_top = 0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
 
 [node name="InteractionArea" type="Area2D" parent="."]
 __meta__ = {
@@ -241,3 +248,8 @@ shape = SubResource( 4 )
 offset = Vector2( 0, -60 )
 energy = 1.0
 shadow_gradient_length = 0.3
+
+[node name="Light2D" type="Light2D" parent="."]
+scale = Vector2( 2, 2 )
+texture = ExtResource( 10 )
+energy = 0.2
