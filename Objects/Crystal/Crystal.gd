@@ -1,6 +1,6 @@
 extends "res://Objects/GeneralUseObjects/Interactable/Interactable.gd"
 
 func _on_interact(trigger):
-	if $Particles2D.emitting:
+	if $Light2D.enabled:
 		trigger.recharge_battery()
-		$Particles2D.emitting = false
+		$Light2D.enabled = false

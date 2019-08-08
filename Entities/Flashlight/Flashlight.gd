@@ -1,6 +1,6 @@
 extends Light2D
 
-export var battery = 300
+export var battery = 10
 onready var player = get_tree().get_nodes_in_group("player")[0]
 
 func _ready():
