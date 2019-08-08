@@ -18,6 +18,13 @@ func _physics_process(delta):
 		States.MOVING:
 			move()
 			$Sprites/AnimationPlayer.play("walk")
+			if is_on_wall():
+				# mining code
+				var tilemap = get_tree().get_root().get_node("Main Scene").get_node("TileMapWalls")
+				var cell = tilemap.get_cellv((global_position + direction.normalized() * 16) / 16)
+				if cell == 5:
+					tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 6)
+					tilemap.update_bitmask_region()
 
 func check_interaction():
 	if Input.is_action_just_pressed("interact"):
