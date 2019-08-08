@@ -8,21 +8,46 @@ export var height = 24
 var dirX = [-1, 1, 0, 0]
 var dirY = [0, 0, 1, -1]
 
-#Enum to control layers of tilesets
-enum Tiles {FLOOR = 0, WALLS = 1}
+
+const TILESIZE = 16
+enum Tiles {FLOOR = 6, WALLS = 5}
 
 func _ready():
 	randomize()
 	var mapArray = _generate_floor_map()
-	_2D_array_to_tilemap(mapArray, $TileMapFloor, $TileMapWalls)
-	for row in mapArray:
-		print(row)
+	_position_player(mapArray)
+	_2D_array_to_tilemap(mapArray, $TileMapWalls)
+	
+func _position_player(map):
+	var playerpos = _get_random_free_space(map) * 16
+	playerpos.x += TILESIZE/2
+	playerpos.y += TILESIZE/2
+	var player = preload("res://Entities/Player/Player.tscn").instance()
+	get_tree().get_root().get_node("Main Scene").add_child(player)
+	player.global_position = playerpos
+
+func _get_random_free_space(array):
+	var x = randi()%width
+	var y = randi()%height
+	while (array[x][y] != Tiles.FLOOR):
+		x = randi()%width
+		y = randi()%height
+	return Vector2(x,y)
 
 func _generate_floor_map():
 	var map : Array = _initialize_2D_array(width, height, Tiles.WALLS)
 	_set_random_paths(map, 3, 7, 4)
 	_set_random_rooms(map, 4, 8, 5)
+	_outline_with_walls(map)
 	return map 
+
+func _outline_with_walls(map):
+	for h in range(height):
+		for w in range(width):
+			if h == 0 or h == height - 1:
+				map[w][h] = Tiles.WALLS
+			if w == 0 or w == width - 1:
+				map[w][h] = Tiles.WALLS
 
 func _initialize_2D_array(sizeX, sizeY, defaultValue):
 	var array = []
@@ -69,10 +94,8 @@ func _create_room(array, startX, startY, width, height):
 				array[x][y] = Tiles.FLOOR
 				y = clamp(y+1, 0, array[x].size()-1)
 
-func _2D_array_to_tilemap(array, tilemap1, tilemap2):
+func _2D_array_to_tilemap(array, tileMap):
 	for x in range(array.size()):
 		for y in range(array[x].size()):
-			if array[x][y] == 1:
-				tilemap2.set_cell(x,y, 2)
-			else:
-				tilemap1.set_cell(x,y, 0)
+			tileMap.set_cell(x,y, array[x][y])
+	tileMap.update_bitmask_region()

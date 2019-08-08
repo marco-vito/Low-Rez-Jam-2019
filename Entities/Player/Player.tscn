@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Entities/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/Head.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Entities/Player/Foot Back.png" type="Texture" id=6]
 [ext_resource path="res://Entities/Player/Foot Front.png" type="Texture" id=7]
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=8]
+[ext_resource path="res://light128.png" type="Texture" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -226,7 +227,7 @@ shape = SubResource( 3 )
 
 [node name="Camera" parent="." instance=ExtResource( 8 )]
 current = true
-zoom = Vector2( 2, 2 )
+zoom = Vector2( 4, 4 )
 
 [node name="InteractionArea" type="Area2D" parent="."]
 __meta__ = {
@@ -236,3 +237,8 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource( 4 )
+
+[node name="Light2D" type="Light2D" parent="."]
+texture = ExtResource( 9 )
+shadow_enabled = true
+shadow_gradient_length = 2.0
