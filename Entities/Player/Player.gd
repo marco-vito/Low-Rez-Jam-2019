@@ -19,13 +19,10 @@ func _physics_process(delta):
 		States.MOVING:
 			move()
 			$Sprites/AnimationPlayer.play("walk")
-			if is_on_wall():
-				# mining code
-				var tilemap = get_tree().get_root().get_node("Main Scene").get_node("TileMapWalls")
-				var cell = tilemap.get_cellv((global_position + direction.normalized() * 16) / 16)
-				if cell == 5:
-					tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 6)
-					tilemap.update_bitmask_region()
+
+func _input(event):
+	if event.is_action_pressed("pickaxe"):
+		_mining()
 
 func check_interaction():
 	if Input.is_action_just_pressed("interact"):
@@ -47,3 +44,12 @@ func check_movement():
 
 func recharge_battery():
 	emit_signal("recharged")
+
+func _mining():
+	#Add sound effect and animation
+	if is_on_wall():
+		var tilemap = get_tree().get_root().get_node("Main Scene").get_node("TileMapWalls")
+		var cell = tilemap.get_cellv((global_position + direction.normalized() * 16) / 16)
+		if cell == 5:
+			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 6)
+			tilemap.update_bitmask_region()
