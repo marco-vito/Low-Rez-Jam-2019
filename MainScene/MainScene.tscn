@@ -26,7 +26,6 @@ zoom = Vector2( 6, 6 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 0.941176 )
 __meta__ = {
 "_edit_lock_": true

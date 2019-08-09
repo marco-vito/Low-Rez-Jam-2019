@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=54 format=2]
+[gd_resource type="TileSet" load_steps=55 format=2]
 
 [ext_resource path="res://Levels/TileMaps/TilemapWalls.png" type="Texture" id=1]
 [ext_resource path="res://Levels/TileMaps/image5.png" type="Texture" id=2]
@@ -65,6 +65,10 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=21]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+
+[sub_resource type="NavigationPolygon" id=52]
+vertices = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
 
 [sub_resource type="OccluderPolygon2D" id=22]
 polygon = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -158,7 +162,7 @@ points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
 
 [resource]
 resource_name = "WallsTileMap"
-2/name = "Walls"
+2/name = "OldWalls"
 2/texture = ExtResource( 1 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
@@ -297,7 +301,7 @@ resource_name = "WallsTileMap"
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 2/z_index = 0
-3/name = "SingleWall"
+3/name = "OldSingleWall"
 3/texture = ExtResource( 1 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
@@ -313,7 +317,7 @@ resource_name = "WallsTileMap"
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 3/z_index = 0
-4/name = "image5.png 4"
+4/name = "Unused"
 4/texture = ExtResource( 2 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
@@ -332,7 +336,7 @@ resource_name = "WallsTileMap"
 4/navigation_offset = Vector2( 0, 0 )
 4/shapes = [  ]
 4/z_index = 0
-5/name = "image5.png 5"
+5/name = "WALLS"
 5/texture = ExtResource( 2 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
@@ -344,7 +348,7 @@ resource_name = "WallsTileMap"
 5/autotile/tile_size = Vector2( 16, 16 )
 5/autotile/spacing = 0
 5/autotile/occluder_map = [ Vector2( 0, 0 ), SubResource( 22 ), Vector2( 0, 1 ), SubResource( 23 ), Vector2( 0, 2 ), SubResource( 24 ), Vector2( 1, 0 ), SubResource( 25 ), Vector2( 1, 1 ), SubResource( 26 ), Vector2( 1, 2 ), SubResource( 27 ), Vector2( 1, 3 ), SubResource( 28 ), Vector2( 2, 0 ), SubResource( 29 ), Vector2( 2, 1 ), SubResource( 30 ), Vector2( 2, 2 ), SubResource( 31 ), Vector2( 2, 3 ), SubResource( 32 ), Vector2( 3, 0 ), SubResource( 33 ), Vector2( 3, 1 ), SubResource( 34 ), Vector2( 3, 2 ), SubResource( 35 ), Vector2( 3, 3 ), SubResource( 36 ) ]
-5/autotile/navpoly_map = [  ]
+5/autotile/navpoly_map = [ Vector2( 0, 3 ), SubResource( 52 ) ]
 5/autotile/priority_map = [  ]
 5/autotile/z_index_map = [  ]
 5/occluder_offset = Vector2( 0, 0 )
@@ -441,7 +445,7 @@ resource_name = "WallsTileMap"
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 5/z_index = 0
-6/name = "image5.png 6"
+6/name = "FLOOR"
 6/texture = ExtResource( 2 )
 6/tex_offset = Vector2( 0, 0 )
 6/modulate = Color( 1, 1, 1, 1 )

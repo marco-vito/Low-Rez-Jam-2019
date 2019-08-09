@@ -15,7 +15,7 @@ var spawnratesSymbol = { # Avg amount spawned
 
 var spawnratesDirect = {
 	"res://Objects/Crystal/Crystal.tscn" : 4,
-	"res://Objects/RechargeStation/RechargeStation.tscn" : 2,
+	"res://Objects/RechargeStation/RechargeStation.tscn" : 1,
 }
 
 const TILESIZE = 16
