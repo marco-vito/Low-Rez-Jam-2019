@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Objects/GeneralUseObjects/Interactable/Interactable.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Objects/RechargeStation/RechargeStation.gd" type="Script" id=2]
 [ext_resource path="res://Objects/GeneralUseObjects/BasicSprite/BasicSprite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/RechargeStation/Station.png" type="Texture" id=4]
+[ext_resource path="res://Objects/Crystal/CrystalLight.png" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.4731, 5.16005 )
@@ -28,3 +29,9 @@ speed = 0.2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BasicSprite/StaticBody2D" index="0"]
 position = Vector2( -0.426287, 9.0373 )
 shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="." index="2"]
+position = Vector2( -0.387421, -10.6541 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 5 )
+energy = 0.2
