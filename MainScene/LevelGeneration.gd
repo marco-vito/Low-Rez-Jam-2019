@@ -8,11 +8,14 @@ export var height = 24
 var dirX = [-1, 1, 0, 0]
 var dirY = [0, 0, 1, -1]
 
-var spawnrates = { # Avg amount spawned
-	"res://Objects/Crystal/Crystal.tscn" : 4,
+var spawnratesSymbol = { # Avg amount spawned
 	"res://Objects/Slate/Slate.tscn" : 2,
-	"res://Objects/RechargeStation/RechargeStation.tscn" : 2,
 	"res://Objects/Pointer/Pointer.tscn" : 2
+}
+
+var spawnratesDirect = {
+	"res://Objects/Crystal/Crystal.tscn" : 4,
+	"res://Objects/RechargeStation/RechargeStation.tscn" : 2,
 }
 
 const TILESIZE = 16
@@ -27,18 +30,23 @@ func _ready():
 	_2D_array_to_tilemap(mapArray, $TileMapWalls)
 
 func _position_objects(map):
-	for toSpawn in spawnrates.keys():
-		var amount = randi()%int(spawnrates[toSpawn] * 1.5)
+	for toSpawn in spawnratesSymbol.keys():
+		var amount = randi()%int(spawnratesSymbol[toSpawn] * 1.5)
+		for i in amount:
+			var symbol = _spawn_at_random_pos(map, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn")
+			symbol.toInstanciated = load(toSpawn)
+			
+	for toSpawn in spawnratesDirect.keys():
+		var amount = randi()%int(spawnratesDirect[toSpawn] * 1.5)
 		for i in amount:
 			_spawn_at_random_pos(map, toSpawn)
-			var pos = _get_random_free_space(map) * TILESIZE
-	
 
 func _spawn_at_random_pos(map, path_to_node):
 	var pos = _get_random_free_space(map) * TILESIZE
 	var object = load(path_to_node).instance()
 	get_tree().get_root().get_node("Main Scene").get_node("YSort").add_child(object)
 	object.global_position = pos + Vector2(TILESIZE/2, TILESIZE/2)
+	return object
 
 func _get_random_free_space(array):
 	# @TODO check for instance at position
