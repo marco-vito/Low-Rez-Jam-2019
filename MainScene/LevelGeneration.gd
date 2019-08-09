@@ -8,6 +8,12 @@ export var height = 24
 var dirX = [-1, 1, 0, 0]
 var dirY = [0, 0, 1, -1]
 
+var spawnrates = { # Avg amount spawned
+	"res://Objects/Crystal/Crystal.tscn" : 4,
+	"res://Objects/Slate/Slate.tscn" : 2,
+	"res://Objects/RechargeStation/RechargeStation.tscn" : 2,
+	"res://Objects/Pointer/Pointer.tscn" : 2
+}
 
 const TILESIZE = 16
 enum Tiles {FLOOR = 6, WALLS = 5}
@@ -15,18 +21,27 @@ enum Tiles {FLOOR = 6, WALLS = 5}
 func _ready():
 	randomize()
 	var mapArray = _generate_floor_map()
-	_position_player(mapArray)
+	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn")
+	_spawn_at_random_pos(mapArray, "res://Objects/Exit/Exit.tscn")
+	_position_objects(mapArray)
 	_2D_array_to_tilemap(mapArray, $TileMapWalls)
+
+func _position_objects(map):
+	for toSpawn in spawnrates.keys():
+		var amount = randi()%int(spawnrates[toSpawn] * 1.5)
+		for i in amount:
+			_spawn_at_random_pos(map, toSpawn)
+			var pos = _get_random_free_space(map) * TILESIZE
 	
-func _position_player(map):
-	var playerpos = _get_random_free_space(map) * 16
-	playerpos.x += TILESIZE/2
-	playerpos.y += TILESIZE/2
-	var player = preload("res://Entities/Player/Player.tscn").instance()
-	get_tree().get_root().get_node("Main Scene").add_child(player)
-	player.global_position = playerpos
+
+func _spawn_at_random_pos(map, path_to_node):
+	var pos = _get_random_free_space(map) * TILESIZE
+	var object = load(path_to_node).instance()
+	get_tree().get_root().get_node("Main Scene").get_node("YSort").add_child(object)
+	object.global_position = pos + Vector2(TILESIZE/2, TILESIZE/2)
 
 func _get_random_free_space(array):
+	# @TODO check for instance at position
 	var x = randi()%width
 	var y = randi()%height
 	while (array[x][y] != Tiles.FLOOR):
