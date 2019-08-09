@@ -1,6 +1,7 @@
 extends "res://Entities/Entity.gd"
 
 signal recharged
+signal update_map
 
 enum States {IDLE, MOVING}
 var state = States.IDLE
@@ -48,8 +49,9 @@ func recharge_battery():
 func _mining():
 	#Add sound effect and animation
 	if is_on_wall():
-		var tilemap = get_tree().get_root().get_node("Level").get_node("TileMapWalls")
+		var tilemap = get_tree().get_root().get_node("Level").get_node("Navigation2D").get_node("TileMapWalls")
 		var cell = tilemap.get_cellv((global_position + direction.normalized() * 16) / 16)
 		if cell == 5:
 			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 6)
 			tilemap.update_bitmask_region()
+			emit_signal("update_map")
