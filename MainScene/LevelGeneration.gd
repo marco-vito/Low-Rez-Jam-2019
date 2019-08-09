@@ -24,8 +24,8 @@ enum Tiles {FLOOR = 6, WALLS = 5}
 func _ready():
 	randomize()
 	var mapArray = _generate_floor_map()
-	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn")
-	_spawn_at_random_pos(mapArray, "res://Objects/Exit/Exit.tscn")
+	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn", Tiles.FLOOR)
+	_spawn_at_random_pos(mapArray, "res://Objects/Exit/Exit.tscn", Tiles.FLOOR)
 	_position_objects(mapArray)
 	_2D_array_to_tilemap(mapArray, $TileMapWalls)
 
@@ -33,26 +33,26 @@ func _position_objects(map):
 	for toSpawn in spawnratesSymbol.keys():
 		var amount = randi()%int(spawnratesSymbol[toSpawn] * 1.5)
 		for i in amount:
-			var symbol = _spawn_at_random_pos(map, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn")
+			var symbol = _spawn_at_random_pos(map, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn", Tiles.WALLS)
 			symbol.toInstanciated = load(toSpawn)
 			
 	for toSpawn in spawnratesDirect.keys():
 		var amount = randi()%int(spawnratesDirect[toSpawn] * 1.5)
 		for i in amount:
-			_spawn_at_random_pos(map, toSpawn)
+			_spawn_at_random_pos(map, toSpawn, Tiles.FLOOR)
 
-func _spawn_at_random_pos(map, path_to_node):
-	var pos = _get_random_free_space(map) * TILESIZE
+func _spawn_at_random_pos(map, path_to_node, tile):
+	var pos = _get_random_space(map, tile) * TILESIZE
 	var object = load(path_to_node).instance()
 	get_tree().get_root().get_node("Main Scene").get_node("YSort").add_child(object)
 	object.global_position = pos + Vector2(TILESIZE/2, TILESIZE/2)
 	return object
 
-func _get_random_free_space(array):
+func _get_random_space(array, tile):
 	# @TODO check for instance at position
 	var x = randi()%width
 	var y = randi()%height
-	while (array[x][y] != Tiles.FLOOR):
+	while (array[x][y] != tile):
 		x = randi()%width
 		y = randi()%height
 	return Vector2(x,y)
