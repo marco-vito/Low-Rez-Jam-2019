@@ -51,7 +51,7 @@ func _mining():
 	if is_on_wall():
 		var tilemap = get_tree().get_root().get_node("Level").get_node("Navigation2D").get_node("TileMapWalls")
 		var cell = tilemap.get_cellv((global_position + direction.normalized() * 16) / 16)
-		if cell == 5:
-			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 6)
+		if cell == 0:
+			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 1)
 			tilemap.update_bitmask_region()
 			emit_signal("update_map")

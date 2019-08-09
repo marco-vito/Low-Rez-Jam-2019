@@ -18,7 +18,7 @@ var spawnratesDirect = {
 }
 
 const TILESIZE = 16
-enum Tiles {FLOOR = 6, WALLS = 5}
+enum Tiles {FLOOR = 1, WALLS = 0}
 
 func _ready():
 	randomize()
