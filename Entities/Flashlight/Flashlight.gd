@@ -3,7 +3,7 @@ extends Light2D
 signal on
 signal off
 
-export var battery = 12
+export var battery = 10
 onready var player = get_tree().get_nodes_in_group("player")[0]
 
 func _init():
@@ -45,4 +45,4 @@ func _deplete_battery():
 		$Timer.stop()
 	
 func _recharge_battery():
-	battery = 12
+	battery = 10

@@ -10,6 +10,9 @@ enum animations {IDLE, WALK}
 func _init():
 	add_to_group("player")
 
+func _ready():
+	$InteractionArea.connect("body_entered", self, "_check_defeat")
+
 func _physics_process(delta):
 	check_input()
 	check_movement()
@@ -55,3 +58,8 @@ func _mining():
 			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 1)
 			tilemap.update_bitmask_region()
 			emit_signal("update_map")
+
+func _check_defeat():
+	for area in $InteractionArea.get_overlapping_areas():
+		if area.get_owner().is_in_group("enemy"):
+			get_tree().change_scene("res://Levels/FinalRoom.tscn")
