@@ -227,7 +227,6 @@ shape = SubResource( 3 )
 
 [node name="Camera" parent="." instance=ExtResource( 8 )]
 current = true
-zoom = Vector2( 2, 2 )
 limit_left = 0
 limit_top = 0
 drag_margin_left = 0.0
@@ -247,7 +246,7 @@ shape = SubResource( 4 )
 [node name="Flashlight" parent="." instance=ExtResource( 9 )]
 offset = Vector2( 0, -60 )
 energy = 1.0
-shadow_gradient_length = 0.3
+shadow_gradient_length = 1.0
 
 [node name="Light2D" type="Light2D" parent="."]
 scale = Vector2( 2, 2 )
