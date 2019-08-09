@@ -10,12 +10,12 @@ var dirY = [0, 0, 1, -1]
 
 var spawnratesSymbol = { # Avg amount spawned
 	"res://Objects/Slate/Slate.tscn" : 2,
-	"res://Objects/Pointer/Pointer.tscn" : 2
+	"res://Objects/Pointer/Pointer.tscn" : 2,
+	"res://Objects/Exit/Exit.tscn" : 1
 }
 
 var spawnratesDirect = {
-	"res://Objects/Crystal/Crystal.tscn" : 4,
-	"res://Objects/RechargeStation/RechargeStation.tscn" : 1,
+	"res://Objects/Crystal/Crystal.tscn" : 4
 }
 
 const TILESIZE = 16
@@ -25,7 +25,7 @@ func _ready():
 	randomize()
 	var mapArray = _generate_floor_map()
 	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn", Tiles.FLOOR)
-	_spawn_at_random_pos(mapArray, "res://Objects/Exit/Exit.tscn", Tiles.FLOOR)
+	_spawn_at_random_pos(mapArray, "res://Objects/RechargeStation/RechargeStation.tscn", Tiles.FLOOR)
 	_position_objects(mapArray)
 	_2D_array_to_tilemap(mapArray, $TileMapWalls)
 

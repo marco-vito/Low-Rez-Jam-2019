@@ -2,10 +2,15 @@ extends "res://Objects/GeneralUseObjects/Interactable/Interactable.gd"
 
 export (PackedScene) var toInstanciated
 
+onready var flashlight = get_tree().get_nodes_in_group("flashlight")[0]
+
 #Variable to control if the object is on the light or not
-var illuminated : bool = false setget _SetIlluminated
+var illuminated : bool = true setget _SetIlluminated
 
 func _ready():
+	_SetIlluminated(true)
+	flashlight.connect("On", self, "_SetIlluminated", [true])
+	flashlight.connect("Off", self, "_SetIlluminated", [false])
 	if toInstanciated == preload("res://Objects/Exit/Exit.tscn"):
 		add_to_group("exit")
 
@@ -13,9 +18,9 @@ func _ready():
 func _SetIlluminated(parameter : bool):
 	illuminated = parameter
 	if parameter:
-		$Sign.visible = false
+		visible = false
 	else:
-		$Sign.visible = true
+		visible = true
 
 func _on_interact(trigger):
 	var object = toInstanciated.instance()
