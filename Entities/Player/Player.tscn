@@ -9,7 +9,7 @@
 [ext_resource path="res://Entities/Player/Foot Front.png" type="Texture" id=7]
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/Flashlight/Flashlight.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Objects/Crystal/CrystalLight.png" type="Texture" id=10]
+[ext_resource path="res://Objects/GeneralUseObjects/BasicLight.png" type="Texture" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"

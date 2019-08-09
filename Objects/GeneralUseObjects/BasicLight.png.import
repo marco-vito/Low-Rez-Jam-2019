@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CrystalLight.png-0d366ffe9479ec3a6bfd91fb8dd867b0.stex"
+path="res://.import/BasicLight.png-24dc38eac4ed591778c31780b5c02bc1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Objects/Crystal/CrystalLight.png"
-dest_files=[ "res://.import/CrystalLight.png-0d366ffe9479ec3a6bfd91fb8dd867b0.stex" ]
+source_file="res://Objects/GeneralUseObjects/BasicLight.png"
+dest_files=[ "res://.import/BasicLight.png-24dc38eac4ed591778c31780b5c02bc1.stex" ]
 
 [params]
 

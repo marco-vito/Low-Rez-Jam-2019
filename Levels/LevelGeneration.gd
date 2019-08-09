@@ -44,7 +44,7 @@ func _position_objects(map):
 func _spawn_at_random_pos(map, path_to_node, tile):
 	var pos = _get_random_space(map, tile) * TILESIZE
 	var object = load(path_to_node).instance()
-	get_tree().get_root().get_node("Main Scene").get_node("YSort").add_child(object)
+	get_tree().get_root().get_node("MainScene").get_node("Level").get_node("YSort").add_child(object)
 	object.global_position = pos + Vector2(TILESIZE/2, TILESIZE/2)
 	return object
 

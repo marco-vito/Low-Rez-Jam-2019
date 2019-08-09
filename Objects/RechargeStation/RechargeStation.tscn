@@ -4,7 +4,9 @@
 [ext_resource path="res://Objects/RechargeStation/RechargeStation.gd" type="Script" id=2]
 [ext_resource path="res://Objects/GeneralUseObjects/BasicSprite/BasicSprite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Objects/RechargeStation/Station.png" type="Texture" id=4]
-[ext_resource path="res://Objects/Crystal/CrystalLight.png" type="Texture" id=5]
+[ext_resource path="res://Objects/GeneralUseObjects/BasicLight.png" type="Texture" id=5]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.4731, 5.16005 )
