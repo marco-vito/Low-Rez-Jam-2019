@@ -1,8 +1,8 @@
 extends Node2D
 
 #Varibales to control the size of the level beign generated
-export var width = 24
-export var height = 24
+export var width = 16
+export var height = 16
 
 #Arrays to control the direction of the steps for the random generation of tile. [North, South, East, West].
 var dirX = [-1, 1, 0, 0]
@@ -11,11 +11,10 @@ var dirY = [0, 0, 1, -1]
 var spawnratesSymbol = { # Avg amount spawned
 	"res://Objects/Slate/Slate.tscn" : 2,
 	"res://Objects/Pointer/Pointer.tscn" : 2,
-	"res://Objects/Exit/Exit.tscn" : 1
 }
 
 var spawnratesDirect = {
-	"res://Objects/Crystal/Crystal.tscn" : 4
+	"res://Objects/Crystal/Crystal.tscn" : 3
 }
 
 const TILESIZE = 16
@@ -26,6 +25,7 @@ func _ready():
 	var mapArray = _generate_floor_map()
 	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn", Tiles.FLOOR)
 	_spawn_at_random_pos(mapArray, "res://Objects/RechargeStation/RechargeStation.tscn", Tiles.FLOOR)
+	_spawn_at_random_pos(mapArray, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn", Tiles.WALLS)
 	_position_objects(mapArray)
 	_2D_array_to_tilemap(mapArray, $TileMapWalls)
 
@@ -44,7 +44,7 @@ func _position_objects(map):
 func _spawn_at_random_pos(map, path_to_node, tile):
 	var pos = _get_random_space(map, tile) * TILESIZE
 	var object = load(path_to_node).instance()
-	get_tree().get_root().get_node("MainScene").get_node("Level").get_node("YSort").add_child(object)
+	get_tree().get_root().get_node("Level").get_node("YSort").add_child(object)
 	object.global_position = pos + Vector2(TILESIZE/2, TILESIZE/2)
 	return object
 

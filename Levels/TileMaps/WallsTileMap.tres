@@ -444,7 +444,7 @@ resource_name = "WallsTileMap"
 "shape": SubResource( 51 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
-5/z_index = 0
+5/z_index = 1
 6/name = "FLOOR"
 6/texture = ExtResource( 2 )
 6/tex_offset = Vector2( 0, 0 )
