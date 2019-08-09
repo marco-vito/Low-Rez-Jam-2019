@@ -1,7 +1,7 @@
 extends Light2D
 
-signal On
-signal Off
+signal on
+signal off
 
 export var battery = 12
 onready var player = get_tree().get_nodes_in_group("player")[0]
@@ -22,11 +22,11 @@ func _input(event):
 	if event.is_action_pressed("light"):
 		if !visible and battery > 0:
 			visible = true
-			emit_signal("On")
+			emit_signal("on")
 			$Timer.start()
 		else:
 			visible = false
-			emit_signal("Off")
+			emit_signal("off")
 			$Timer.stop()
 
 func _change_direction():
@@ -41,7 +41,7 @@ func _deplete_battery():
 	$CanvasLayer/BatteryDisplay.get("custom_styles/fg").set_bg_color(c)
 	if battery <= 0:
 		visible = false
-		emit_signal("Off")
+		emit_signal("off")
 		$Timer.stop()
 	
 func _recharge_battery():

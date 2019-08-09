@@ -9,8 +9,8 @@ var illuminated : bool = true setget _SetIlluminated
 
 func _ready():
 	_SetIlluminated(true)
-	flashlight.connect("On", self, "_SetIlluminated", [true])
-	flashlight.connect("Off", self, "_SetIlluminated", [false])
+	flashlight.connect("on", self, "_SetIlluminated", [true])
+	flashlight.connect("off", self, "_SetIlluminated", [false])
 	if toInstanciated == preload("res://Objects/Exit/Exit.tscn"):
 		add_to_group("exit")
 
