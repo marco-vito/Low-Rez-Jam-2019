@@ -5,6 +5,9 @@ signal off
 
 export var battery = 10
 onready var player = get_tree().get_nodes_in_group("player")[0]
+var streamOn = preload("res://Entities/Flashlight/FlashlightOn.wav")
+var streamOff = preload("res://Entities/Flashlight/FlashlightOff.wav")
+
 
 func _init():
 	add_to_group("flashlight")
@@ -23,10 +26,12 @@ func _input(event):
 		if !visible and battery > 0:
 			visible = true
 			emit_signal("on")
+			Global.audioController.play_sfx(streamOn)
 			$Timer.start()
 		else:
 			visible = false
 			emit_signal("off")
+			Global.audioController.play_sfx(streamOff)
 			$Timer.stop()
 
 func _change_direction():
@@ -42,6 +47,7 @@ func _deplete_battery():
 	if battery <= 0:
 		visible = false
 		emit_signal("off")
+		Global.audioController.play_sfx(streamOff)
 		$Timer.stop()
 	
 func _recharge_battery():

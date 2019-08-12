@@ -22,6 +22,7 @@ func _physics_process(delta):
 			check_interaction()
 		States.MOVING:
 			move()
+			_steps_sounds()
 			$Sprites/AnimationPlayer.play("walk")
 
 func _input(event):
@@ -50,16 +51,23 @@ func recharge_battery():
 	emit_signal("recharged")
 
 func _mining():
-	#Add sound effect and animation
+	var stream = load("res://Entities/Player/SoundEffects/PickaxeSwing"+str(randi()%2+1)+".wav")
+	Global.audioController.play_sfx(stream)
 	if is_on_wall():
 		var tilemap = get_tree().get_root().get_node("Level").get_node("Navigation2D").get_node("TileMapWalls")
 		var cell = tilemap.get_cellv((global_position + direction.normalized() * 16) / 16)
 		if cell == 0:
 			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 1)
 			tilemap.update_bitmask_region()
+			stream = load("res://Entities/Player/SoundEffects/WallBreak"+str(randi()%2+1)+".wav")
+			Global.audioController.play_sfx(stream)
 			emit_signal("update_map")
 
 func _check_defeat():
 	for area in $InteractionArea.get_overlapping_areas():
 		if area.get_owner().is_in_group("enemy"):
 			get_tree().change_scene("res://Levels/FinalRoom.tscn")
+			
+func _steps_sounds():
+	var stream = load("res://Entities/Player/SoundEffects/PlayerStep"+str(randi()%3+1)+".wav")
+	Global.audioController.play_sfx(stream)
