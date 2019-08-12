@@ -54,7 +54,7 @@ func _mining():
 	var stream = load("res://Entities/Player/SoundEffects/PickaxeSwing"+str(randi()%2+1)+".wav")
 	Global.audioController.play_sfx(stream)
 	if is_on_wall():
-		var tilemap = get_tree().get_root().get_node("Level").get_node("Navigation2D").get_node("TileMapWalls")
+		var tilemap = get_tree().get_nodes_in_group("map")[0]
 		var cell = tilemap.get_cellv((global_position + direction.normalized() * 16) / 16)
 		if cell == 0:
 			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 1)
