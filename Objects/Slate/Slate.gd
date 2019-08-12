@@ -1,11 +1,19 @@
 extends "res://Objects/GeneralUseObjects/Interactable/Interactable.gd"
 
-#variable to control if the interaction should show the text or hide it
+export var random : bool = true
+export var message : String
+
+#Variable to control if the interaction should show the text or hide it
 var interactable = true
 
 func _ready():
-	$CanvasLayer/RichTextLabel.visible = false
+	$CanvasLayer/ColorRect.visible = false
 	$Sprite.texture.region.size.y = 0
+	if random:
+		var key = randi()%Global.messages.size()
+		message = Global.messages[key]
+		Global.messages.erase(key)
+	$CanvasLayer/ColorRect/RichTextLabel.text = message
 	
 func _process(delta):
 	if $Sprite.texture.region.size.y < 32:
@@ -16,7 +24,7 @@ func _process(delta):
 func _on_interact(trigger):
 	if interactable:
 		interactable = false
-		$CanvasLayer/RichTextLabel.visible = true
+		$CanvasLayer/ColorRect.visible = true
 	else:
-		$CanvasLayer/RichTextLabel.visible = false
+		$CanvasLayer/ColorRect.visible = false
 		interactable = true
