@@ -252,3 +252,6 @@ shadow_gradient_length = 1.0
 scale = Vector2( 2, 2 )
 texture = ExtResource( 10 )
 energy = 0.2
+
+[node name="StepSound" type="AudioStreamPlayer2D" parent="."]
+volume_db = -20.0

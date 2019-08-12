@@ -16,14 +16,14 @@ func _ready():
 func _physics_process(delta):
 	check_input()
 	check_movement()
+	check_interaction()
 	match state:
 		States.IDLE:
 			$Sprites/AnimationPlayer.play("idle")
-			check_interaction()
 		States.MOVING:
 			move()
-			_steps_sounds()
 			$Sprites/AnimationPlayer.play("walk")
+			_new_step_sound()
 
 func _input(event):
 	if event.is_action_pressed("pickaxe"):
@@ -67,7 +67,9 @@ func _check_defeat():
 	for area in $InteractionArea.get_overlapping_areas():
 		if area.get_owner().is_in_group("enemy"):
 			get_tree().change_scene("res://Levels/FinalRoom.tscn")
-			
-func _steps_sounds():
-	var stream = load("res://Entities/Player/SoundEffects/PlayerStep"+str(randi()%3+1)+".wav")
-	Global.audioController.play_sfx(stream)
+	
+func _new_step_sound():
+	if !$StepSound.playing:
+		var stream = load("res://Entities/Player/SoundEffects/PlayerStep"+str(randi()%3+1)+".wav")
+		$StepSound.stream = stream
+		$StepSound.play()
