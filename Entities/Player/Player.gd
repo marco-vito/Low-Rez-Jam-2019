@@ -63,7 +63,7 @@ func _mining():
 			Global.audioController.play_sfx(stream)
 			emit_signal("update_map")
 
-func _check_defeat():
+func _check_defeat(area):
 	for area in $InteractionArea.get_overlapping_areas():
 		if area.get_owner().is_in_group("enemy"):
 			get_tree().change_scene("res://Levels/FinalRoom.tscn")
