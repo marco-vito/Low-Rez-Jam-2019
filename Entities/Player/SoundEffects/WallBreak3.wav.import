@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/WallBreak3.wav-622aa09a002b0254399b7a21a81ae845.sample"
+
+[deps]
+
+source_file="res://Entities/Player/SoundEffects/WallBreak3.wav"
+dest_files=[ "res://.import/WallBreak3.wav-622aa09a002b0254399b7a21a81ae845.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

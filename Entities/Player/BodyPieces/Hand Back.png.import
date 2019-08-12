@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Foot Back.png-0e5c3879f08e99d4aec9837be0ed6f48.stex"
+path="res://.import/Hand Back.png-d4b28905239aea7080f6ae418bb69bec.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Entities/Player/Foot Back.png"
-dest_files=[ "res://.import/Foot Back.png-0e5c3879f08e99d4aec9837be0ed6f48.stex" ]
+source_file="res://Entities/Player/BodyPieces/Hand Back.png"
+dest_files=[ "res://.import/Hand Back.png-d4b28905239aea7080f6ae418bb69bec.stex" ]
 
 [params]
 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PlayerStep2.wav-d0854e8d29994d9360c220e9d0ff7535.sample"
+
+[deps]
+
+source_file="res://Entities/Player/SoundEffects/PlayerStep2.wav"
+dest_files=[ "res://.import/PlayerStep2.wav-d0854e8d29994d9360c220e9d0ff7535.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

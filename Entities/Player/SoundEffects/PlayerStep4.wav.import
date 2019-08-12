@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PlayerStep4.wav-8a87acae36981720e068b410cceb9d6d.sample"
+
+[deps]
+
+source_file="res://Entities/Player/SoundEffects/PlayerStep4.wav"
+dest_files=[ "res://.import/PlayerStep4.wav-8a87acae36981720e068b410cceb9d6d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
