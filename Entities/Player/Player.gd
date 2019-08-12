@@ -11,7 +11,7 @@ func _init():
 	add_to_group("player")
 
 func _ready():
-	$InteractionArea.connect("body_entered", self, "_check_defeat")
+	$InteractionArea.connect("area_entered", self, "_check_defeat")
 
 func _physics_process(delta):
 	check_input()
