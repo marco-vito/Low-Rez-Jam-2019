@@ -60,7 +60,7 @@ func _mining():
 			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 1)
 			tilemap.update_bitmask_region()
 			stream = load("res://Entities/Player/SoundEffects/WallBreak"+str(randi()%2+1)+".wav")
-			Global.audioController.play_sfx(stream)
+			Global.audioController.play_sfx(stream, -10)
 			emit_signal("update_map")
 
 func _check_defeat(area):
