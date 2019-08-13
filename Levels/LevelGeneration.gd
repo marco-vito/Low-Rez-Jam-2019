@@ -18,7 +18,7 @@ var spawnratesDirect = {
 }
 
 const TILESIZE = 16
-enum Tiles {FLOOR = 1, WALLS = 0}
+enum Tiles {FLOOR = 1, WALLS = 0, BORDERS = 2}
 
 func _ready():
 	randomize()
@@ -70,9 +70,9 @@ func _outline_with_walls(map):
 	for h in range(height):
 		for w in range(width):
 			if h == 0 or h == height - 1:
-				map[w][h] = Tiles.WALLS
+				map[w][h] = Tiles.BORDERS
 			if w == 0 or w == width - 1:
-				map[w][h] = Tiles.WALLS
+				map[w][h] = Tiles.BORDERS
 
 func _initialize_2D_array(sizeX, sizeY, defaultValue):
 	var array = []
