@@ -9,8 +9,8 @@ var dirX = [-1, 1, 0, 0]
 var dirY = [0, 0, 1, -1]
 
 var spawnratesSymbol = { # Avg amount spawned
-	"res://Objects/Slate/Slate.tscn" : 2,
-	"res://Objects/Pointer/Pointer.tscn" : 2,
+	"res://Objects/Slate/Slate.tscn" : 3,
+	"res://Objects/Pointer/Pointer.tscn" : 3,
 }
 
 var spawnratesDirect = {
@@ -21,6 +21,8 @@ const TILESIZE = 16
 enum Tiles {FLOOR = 1, WALLS = 0, BORDERS = 2}
 
 func _ready():
+	$YSort.add_to_group("ysort")
+	$Symbols.add_to_group("symbol")
 	var mapArray = _generate_floor_map()
 	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn", Tiles.FLOOR)
 	_spawn_at_random_pos(mapArray, "res://Objects/RechargeStation/RechargeStation.tscn", Tiles.FLOOR)
@@ -46,9 +48,9 @@ func _spawn_at_random_pos(map, path_to_node, tile, ysort : bool = true):
 	var pos = _get_random_space(map, tile) * TILESIZE
 	var object = load(path_to_node).instance()
 	if ysort:
-		get_tree().get_root().get_node("Level").get_node("YSort").add_child(object)
+		get_tree().get_nodes_in_group("ysort")[0].add_child(object)
 	else:
-		get_tree().get_root().get_node("Level").add_child(object)
+		get_tree().get_nodes_in_group("symbol")[0].add_child(object)
 	object.global_position = pos + Vector2(TILESIZE/2, TILESIZE/2)
 	return object
 
