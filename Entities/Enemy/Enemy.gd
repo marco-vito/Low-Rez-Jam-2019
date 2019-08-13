@@ -8,7 +8,7 @@ var player
 var nav
 
 var path = PoolVector2Array() setget set_path
-var speed = 20
+var speed = 10
 
 func _ready():
 	add_to_group("enemy")
@@ -28,6 +28,7 @@ func _physics_process(delta):
 			_hidden()
 
 func _moving():
+	$BasicSprite.visible = true
 	if path.size() > 1:
 		var d = global_position.distance_to(path[0])
 		if d > 2:
@@ -39,8 +40,7 @@ func _moving():
 		_update_path()
 		
 func _hidden():
-	#play animation of disappearing once, stop following sound, emit shriek
-	pass
+	$BasicSprite.visible = false
 
 func _hidden_state():
 	state = States.HIDDEN
