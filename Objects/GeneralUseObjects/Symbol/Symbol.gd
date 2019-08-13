@@ -10,10 +10,14 @@ var illuminated : bool = true setget _SetIlluminated
 
 func _ready():
 	_SetIlluminated(true)
-	if toInstanciated == preload("res://Objects/Exit/Exit.tscn"):
-		add_to_group("exit")
 	player = get_tree().get_nodes_in_group("player")[0]
 	player.connect("mined", self, "_make_visible")
+	call_deferred("_assign_exit")
+
+#Function to assign the "exit" group value that'll be found by the Pointer
+func _assign_exit():
+	if toInstanciated == preload("res://Objects/Exit/Exit.tscn"):
+		add_to_group("exit")
 
 #Function to control if the sign is visible or not. It should only be visible in the dark.
 func _SetIlluminated(parameter : bool):
