@@ -4,7 +4,7 @@ onready var viewport = get_viewport()
 
 func _ready():
 	get_tree().connect("screen_resized", self, "_screen_resized")
-	OS.set_window_size(Vector2(720, 432))
+	OS.set_window_size(Vector2(720, 720))
 
 func _screen_resized():
 	var window_size = OS.get_window_size()
