@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Levels/LevelGeneration.gd" type="Script" id=1]
 [ext_resource path="res://Levels/TileMaps/TileMap.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/TileMaps/TileMap.tres" type="TileSet" id=3]
-[ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/GeneralUseObjects/AudioController/AudioController.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/GeneralUseObjects/AudioController/AudioController.tscn" type="PackedScene" id=4]
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,11 +14,6 @@ script = ExtResource( 1 )
 tile_set = ExtResource( 3 )
 tile_data = PoolIntArray( 131072, 1, 0, 131075, 1, 0 )
 
-[node name="Camera" parent="." instance=ExtResource( 4 )]
-position = Vector2( 144.304, 124.943 )
-current = true
-zoom = Vector2( 6, 6 )
-
 [node name="YSort" type="YSort" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -28,4 +22,4 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="AudioController" parent="." instance=ExtResource( 5 )]
+[node name="AudioController" parent="." instance=ExtResource( 4 )]

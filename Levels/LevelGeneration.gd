@@ -26,7 +26,8 @@ func _ready():
 	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn", Tiles.FLOOR)
 	_spawn_at_random_pos(mapArray, "res://Objects/RechargeStation/RechargeStation.tscn", Tiles.FLOOR)
 	_spawn_at_random_pos(mapArray, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn", Tiles.WALLS)
-	_spawn_at_random_pos(mapArray, "res://Entities/Enemy/Enemy.tscn", Tiles.FLOOR)
+	for i in Global.totalLevels:
+		_spawn_at_random_pos(mapArray, "res://Entities/Enemy/Enemy.tscn", Tiles.FLOOR)
 	_position_objects(mapArray)
 	_2D_array_to_tilemap(mapArray, $Navigation2D/TileMapWalls)
 

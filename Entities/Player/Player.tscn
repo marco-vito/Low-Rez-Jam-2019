@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Entities/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/Player/BodyPieces/Head.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Entities/Player/BodyPieces/Foot Front.png" type="Texture" id=7]
 [ext_resource path="res://Entities/Flashlight/Flashlight.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Objects/GeneralUseObjects/BasicLight.png" type="Texture" id=9]
+[ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -245,3 +246,6 @@ energy = 0.2
 
 [node name="StepSound" type="AudioStreamPlayer2D" parent="."]
 volume_db = -20.0
+
+[node name="Camera" parent="." instance=ExtResource( 10 )]
+current = true
