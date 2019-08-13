@@ -5,7 +5,7 @@
 [ext_resource path="res://Entities/Enemy/Spoderman.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 2.46281, 2.42841 )
+extents = Vector2( 0.0994253, 0.0212622 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6.13918, 2.90984 )
