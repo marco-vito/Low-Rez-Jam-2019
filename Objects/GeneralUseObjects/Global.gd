@@ -1,6 +1,6 @@
 extends Node
 
-var totalLevels = 3
+var totalLevels = 0
 
 var audioController
 
