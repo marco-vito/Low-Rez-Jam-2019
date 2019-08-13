@@ -31,7 +31,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("pickaxe"):
-		_mining()
+		_mine()
 
 func check_interaction():
 	if Input.is_action_just_pressed("interact"):
@@ -54,19 +54,22 @@ func check_movement():
 func recharge_battery():
 	emit_signal("recharged")
 
-func _mining():
+func _mine():
 	var stream = load("res://Entities/Player/SoundEffects/PickaxeSwing"+str(randi()%2+1)+".wav")
 	Global.audioController.play_sfx(stream)
 	if is_on_wall():
 		var tilemap = get_tree().get_nodes_in_group("map")[0]
-		var cell = tilemap.get_cellv((global_position + direction.normalized() * 16) / 16)
+		_mine_at(tilemap, (global_position + direction.normalized() * 16) / 16)
+
+func _mine_at(map, pos):
+	 var cell = map.get_cellv(pos)
 		if cell == 0:
-			tilemap.set_cellv((global_position + direction.normalized() * 16) / 16, 1)
-			tilemap.update_bitmask_region()
-			stream = load("res://Entities/Player/SoundEffects/WallBreak"+str(randi()%2+1)+".wav")
+			map.set_cellv(pos, 1)
+			map.update_bitmask_region()
+			var stream = load("res://Entities/Player/SoundEffects/WallBreak"+str(randi()%2+1)+".wav")
 			Global.audioController.play_sfx(stream, -10)
 			emit_signal("update_map")
-			emit_signal("mined", global_position + direction.normalized() * 16)
+			emit_signal("mined", pos * 16)
 
 func _check_defeat(area):
 	for area in $InteractionArea.get_overlapping_areas():
