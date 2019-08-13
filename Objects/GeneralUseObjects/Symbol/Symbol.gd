@@ -25,5 +25,5 @@ func _SetIlluminated(parameter : bool):
 func _on_interact(trigger):
 	var object = toInstanciated.instance()
 	object.global_position = self.global_position
-	get_parent().add_child(object)
+	get_tree().get_nodes_in_group("ysort")[0].add_child(object)
 	queue_free()

@@ -24,7 +24,7 @@ func _ready():
 	var mapArray = _generate_floor_map()
 	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn", Tiles.FLOOR)
 	_spawn_at_random_pos(mapArray, "res://Objects/RechargeStation/RechargeStation.tscn", Tiles.FLOOR)
-	_spawn_at_random_pos(mapArray, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn", Tiles.WALLS)
+	_spawn_at_random_pos(mapArray, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn", Tiles.WALLS, false)
 	for i in Global.totalLevels:
 		_spawn_at_random_pos(mapArray, "res://Entities/Enemy/Enemy.tscn", Tiles.FLOOR)
 	_position_objects(mapArray)
@@ -34,7 +34,7 @@ func _position_objects(map):
 	for toSpawn in spawnratesSymbol.keys():
 		var amount = randi()%int(spawnratesSymbol[toSpawn] * 1.5)
 		for i in amount:
-			var symbol = _spawn_at_random_pos(map, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn", Tiles.WALLS)
+			var symbol = _spawn_at_random_pos(map, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn", Tiles.WALLS, false)
 			symbol.toInstanciated = load(toSpawn)
 			
 	for toSpawn in spawnratesDirect.keys():
@@ -42,10 +42,13 @@ func _position_objects(map):
 		for i in amount:
 			_spawn_at_random_pos(map, toSpawn, Tiles.FLOOR)
 
-func _spawn_at_random_pos(map, path_to_node, tile):
+func _spawn_at_random_pos(map, path_to_node, tile, ysort : bool = true):
 	var pos = _get_random_space(map, tile) * TILESIZE
 	var object = load(path_to_node).instance()
-	get_tree().get_root().get_node("Level").get_node("YSort").add_child(object)
+	if ysort:
+		get_tree().get_root().get_node("Level").get_node("YSort").add_child(object)
+	else:
+		get_tree().get_root().get_node("Level").add_child(object)
 	object.global_position = pos + Vector2(TILESIZE/2, TILESIZE/2)
 	return object
 

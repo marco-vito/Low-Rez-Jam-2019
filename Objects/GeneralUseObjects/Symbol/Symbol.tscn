@@ -7,7 +7,7 @@
 [ext_resource path="res://Objects/GeneralUseObjects/BasicLight.png" type="Texture" id=5]
 
 [node name="Symbol" instance=ExtResource( 1 )]
-z_index = -1
+z_index = -10
 script = ExtResource( 2 )
 toInstanciated = ExtResource( 3 )
 
