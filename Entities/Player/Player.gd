@@ -66,7 +66,7 @@ func _mining():
 			stream = load("res://Entities/Player/SoundEffects/WallBreak"+str(randi()%2+1)+".wav")
 			Global.audioController.play_sfx(stream, -10)
 			emit_signal("update_map")
-			emit_signal("mined", (global_position + direction.normalized() * 16) / 16)
+			emit_signal("mined", global_position + direction.normalized() * 16)
 
 func _check_defeat(area):
 	for area in $InteractionArea.get_overlapping_areas():
