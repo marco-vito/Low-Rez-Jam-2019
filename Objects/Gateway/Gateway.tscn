@@ -17,6 +17,7 @@ texture = ExtResource( 4 )
 hframes = 4
 hfr = 4
 frctn = 4
+speed = 0.2
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
 
