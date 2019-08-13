@@ -31,7 +31,8 @@ func _moving():
 	if path.size() > 1:
 		var d = global_position.distance_to(path[0])
 		if d > 2:
-			global_position = global_position.linear_interpolate(path[0], 0.03)
+			direction = global_position - path[0]
+			move()
 		else:
 			path.remove(0)
 	else:
