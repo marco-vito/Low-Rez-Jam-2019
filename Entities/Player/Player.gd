@@ -12,6 +12,9 @@ func _init():
 
 func _ready():
 	$InteractionArea.connect("area_entered", self, "_check_defeat")
+	$Sprites/Body.modulate = Global.bodyColor
+	$Sprites/FootBack.modulate = Global.shoesColor
+	$Sprites/FootFront.modulate = Global.shoesColor
 
 func _physics_process(delta):
 	check_input()
@@ -66,6 +69,8 @@ func _mining():
 func _check_defeat(area):
 	for area in $InteractionArea.get_overlapping_areas():
 		if area.get_owner().is_in_group("enemy"):
+			Global.bodyColor = Color(randf(), randf(), randf())
+			Global.shoesColor = Color(randf(), randf(), randf())
 			get_tree().reload_current_scene()
 	
 func _new_step_sound():

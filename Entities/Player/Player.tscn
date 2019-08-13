@@ -39,7 +39,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Hand Front:offset")
+tracks/2/path = NodePath("HandFront:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -51,7 +51,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Hand Back:offset")
+tracks/3/path = NodePath("HandBack:offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -63,7 +63,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, -1 ), Vector2( 0, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Foot Front:offset")
+tracks/4/path = NodePath("FootFront:offset")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -75,7 +75,7 @@ tracks/4/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Foot Back:offset")
+tracks/5/path = NodePath("FootBack:offset")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -104,7 +104,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 1 ), Vector2( 0, 1 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Hand Back:offset")
+tracks/1/path = NodePath("HandBack:offset")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -128,7 +128,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Hand Front:offset")
+tracks/3/path = NodePath("HandFront:offset")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -140,7 +140,7 @@ tracks/3/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -1, 0 ), Vector2( 1, 0 ) ]
 }
 tracks/4/type = "value"
-tracks/4/path = NodePath("Foot Back:offset")
+tracks/4/path = NodePath("FootBack:offset")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/imported = false
@@ -152,7 +152,7 @@ tracks/4/keys = {
 "values": [ Vector2( -2, 0 ), Vector2( 1, 0 ), Vector2( -4, 0 ) ]
 }
 tracks/5/type = "value"
-tracks/5/path = NodePath("Foot Front:offset")
+tracks/5/path = NodePath("FootFront:offset")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -186,14 +186,13 @@ radius = 14.0
 script = ExtResource( 1 )
 
 [node name="Sprites" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Head" type="Sprite" parent="Sprites"]
 texture = ExtResource( 2 )
 offset = Vector2( 0, 1 )
 flip_h = true
 
-[node name="Hand Back" type="Sprite" parent="Sprites"]
+[node name="HandBack" type="Sprite" parent="Sprites"]
 texture = ExtResource( 3 )
 offset = Vector2( -0.0938944, 0 )
 flip_h = true
@@ -202,17 +201,17 @@ flip_h = true
 texture = ExtResource( 4 )
 flip_h = true
 
-[node name="Hand Front" type="Sprite" parent="Sprites"]
+[node name="HandFront" type="Sprite" parent="Sprites"]
 texture = ExtResource( 5 )
 offset = Vector2( -0.249769, 0 )
 flip_h = true
 
-[node name="Foot Back" type="Sprite" parent="Sprites"]
+[node name="FootBack" type="Sprite" parent="Sprites"]
 texture = ExtResource( 6 )
 offset = Vector2( -1.25069, 0 )
 flip_h = true
 
-[node name="Foot Front" type="Sprite" parent="Sprites"]
+[node name="FootFront" type="Sprite" parent="Sprites"]
 texture = ExtResource( 7 )
 offset = Vector2( 0.500462, 0 )
 flip_h = true

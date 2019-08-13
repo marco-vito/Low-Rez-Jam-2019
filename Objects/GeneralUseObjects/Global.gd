@@ -4,6 +4,17 @@ var totalLevels = 3
 
 var audioController
 
+#Variable to control the color of the charater
+
+var bodyColor : Color
+var shoesColor : Color
+
+func _ready():
+	randomize()
+	bodyColor = Color(randf(), randf(), randf())
+	shoesColor = Color(randf(), randf(), randf())
+
+
 #Variables to control the Slate text
 
 #var messageArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]

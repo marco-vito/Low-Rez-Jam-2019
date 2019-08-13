@@ -21,7 +21,6 @@ const TILESIZE = 16
 enum Tiles {FLOOR = 1, WALLS = 0, BORDERS = 2}
 
 func _ready():
-	randomize()
 	var mapArray = _generate_floor_map()
 	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn", Tiles.FLOOR)
 	_spawn_at_random_pos(mapArray, "res://Objects/RechargeStation/RechargeStation.tscn", Tiles.FLOOR)
