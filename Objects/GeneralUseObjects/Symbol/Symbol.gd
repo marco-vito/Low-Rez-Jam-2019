@@ -25,10 +25,11 @@ func _SetIlluminated(parameter : bool):
 
 #Makes symbol disappear and the object it carries be instanciated:
 func _on_interact(trigger):
-	var object = toInstanciated.instance()
-	object.global_position = self.global_position
-	get_tree().get_nodes_in_group("ysort")[0].add_child(object)
-	queue_free()
+	if visible:
+		var object = toInstanciated.instance()
+		object.global_position = self.global_position
+		get_tree().get_nodes_in_group("ysort")[0].add_child(object)
+		queue_free()
 	
 #Makes the symbol invisible while the wall wasn't mined:
 func _make_visible(pos):
