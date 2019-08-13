@@ -7,7 +7,6 @@ export var message : String
 var interactable = true
 
 func _ready():
-	$CanvasLayer/ColorRect.visible = false
 	$Sprite.texture.region.size.y = 0
 	if random:
 		var key = randi()%Global.messages.size()

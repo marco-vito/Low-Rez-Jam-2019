@@ -16,7 +16,6 @@ tile_set = ExtResource( 3 )
 tile_data = PoolIntArray( 131072, 1, 0, 131075, 1, 0 )
 
 [node name="Camera" parent="." instance=ExtResource( 4 )]
-visible = false
 position = Vector2( 144.304, 124.943 )
 current = true
 zoom = Vector2( 6, 6 )

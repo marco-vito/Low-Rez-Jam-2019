@@ -41,7 +41,6 @@ energy = 0.2
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
-visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -57,12 +56,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -19.2836
-margin_top = -18.121
-margin_right = 180.716
-margin_bottom = 181.879
+margin_left = -17.0
+margin_top = -18.0
+margin_right = 155.0
+margin_bottom = 167.0
 rect_scale = Vector2( 0.2, 0.2 )
 custom_fonts/normal_font = ExtResource( 5 )
+text = "This is a text message. Testing"
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="." index="3"]
 visible = false
