@@ -66,7 +66,7 @@ func _mining():
 func _check_defeat(area):
 	for area in $InteractionArea.get_overlapping_areas():
 		if area.get_owner().is_in_group("enemy"):
-			get_tree().change_scene("res://Levels/FinalRoom.tscn")
+			get_tree().reload_current_scene()
 	
 func _new_step_sound():
 	if !$StepSound.playing:
