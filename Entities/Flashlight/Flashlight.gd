@@ -8,7 +8,6 @@ onready var player = get_tree().get_nodes_in_group("player")[0]
 var streamOn = preload("res://Entities/Flashlight/FlashlightOn.wav")
 var streamOff = preload("res://Entities/Flashlight/FlashlightOff.wav")
 
-
 func _init():
 	add_to_group("flashlight")
 
@@ -40,10 +39,7 @@ func _change_direction():
 
 func _deplete_battery():
 	battery -= 1
-	var c = $CanvasLayer/BatteryDisplay.get("custom_styles/fg").get_bg_color()
-	c.r = 1 - $CanvasLayer/BatteryDisplay.value / $CanvasLayer/BatteryDisplay.max_value
-	c.g = $CanvasLayer/BatteryDisplay.value / $CanvasLayer/BatteryDisplay.max_value
-	$CanvasLayer/BatteryDisplay.get("custom_styles/fg").set_bg_color(c)
+	_set_color()
 	if battery <= 0:
 		visible = false
 		emit_signal("off")
@@ -51,4 +47,11 @@ func _deplete_battery():
 		$Timer.stop()
 	
 func _recharge_battery():
-	battery = 10
+	battery = $CanvasLayer/BatteryDisplay.max_value
+	_set_color()
+
+func _set_color():
+	var c = $CanvasLayer/BatteryDisplay.get("custom_styles/fg").get_bg_color()
+	c.r = 1 - $CanvasLayer/BatteryDisplay.value / $CanvasLayer/BatteryDisplay.max_value
+	c.g = $CanvasLayer/BatteryDisplay.value / $CanvasLayer/BatteryDisplay.max_value
+	$CanvasLayer/BatteryDisplay.get("custom_styles/fg").set_bg_color(c)
