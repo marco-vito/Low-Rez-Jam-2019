@@ -13,9 +13,9 @@ func _init():
 	add_to_group("flashlight")
 
 func _ready():
+	visible = false
 	player.connect("recharged", self, "_recharge_battery")
 	$Timer.connect("timeout", self, "_deplete_battery")
-	$Timer.start()
 
 func _process(delta):
 	_change_direction()

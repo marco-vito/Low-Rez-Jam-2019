@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/GeneralUseObjects/Interactable/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Computer.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Computer/Computer.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.46798, 6.27448 )
+
+[node name="Computer" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="PromptArea" parent="." index="0"]
+editor/display_folded = true
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+position = Vector2( -2.89872, -14.2301 )
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2( -6.40817, -6.54524 )
+shape = SubResource( 1 )

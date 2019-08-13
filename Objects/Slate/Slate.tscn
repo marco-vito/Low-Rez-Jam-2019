@@ -41,6 +41,7 @@ energy = 0.2
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="2"]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
+visible = false
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -49,7 +50,7 @@ margin_left = -20.0
 margin_top = -20.0
 margin_right = 20.0
 margin_bottom = 20.0
-color = Color( 0.145098, 0.12549, 0.12549, 1 )
+color = Color( 0.12549, 0.235294, 0.337255, 1 )
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ColorRect" index="0"]
 anchor_left = 0.5

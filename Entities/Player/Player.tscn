@@ -226,6 +226,7 @@ position = Vector2( -0.305573, 1.37502 )
 shape = SubResource( 3 )
 
 [node name="Camera" parent="." instance=ExtResource( 8 )]
+visible = false
 current = true
 limit_left = 0
 limit_top = 0
