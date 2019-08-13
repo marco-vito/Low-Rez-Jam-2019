@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	$RichTextLabel.text = Global.credits[Global.credit]
+
 func _input(event):
 	if event.is_action_pressed("pickaxe"):
 		Global.totalLevels = 3

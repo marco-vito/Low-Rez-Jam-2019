@@ -25,6 +25,11 @@ func _on_interact(trigger):
 	if interactable:
 		interactable = false
 		$CanvasLayer/ColorRect.visible = true
+		$Timer.start()
 	else:
 		$CanvasLayer/ColorRect.visible = false
 		interactable = true
+
+func _on_Timer_timeout():
+	$CanvasLayer/ColorRect.visible = false
+	interactable = true

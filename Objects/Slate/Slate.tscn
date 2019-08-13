@@ -68,3 +68,8 @@ custom_fonts/normal_font = ExtResource( 5 )
 visible = false
 position = Vector2( 0, -24 )
 occluder = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="." index="4"]
+wait_time = 3.0
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

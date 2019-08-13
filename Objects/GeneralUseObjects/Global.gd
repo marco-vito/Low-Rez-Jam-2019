@@ -27,5 +27,13 @@ var messages = { 0 : "This is a text. Later, important things will be written he
 				16 : "This is a text. Later, important things will be written here.",
 				17 : "This is a text. Later, important things will be written here.",
 				18 : "This is a text. Later, important things will be written here.",
-				19 : "This is a text. Later, important things will be written here.",
+				19 : "This is a text. Later, important things will be written here."
 }
+
+#variables to control credits
+
+var credits = { "gateway" : "",
+				"computer" : ""
+}
+
+var credit = ""
