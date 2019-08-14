@@ -61,18 +61,19 @@ func _spawn_at_random_pos(map, path_to_node, tile, ysort : bool = true):
 func _get_random_space(array, tile):
 	var x = randi()%width
 	var y = randi()%height
-	var n = 0
+	var n = false
 	while (array[x][y] != tile):
 		x = randi()%width
 		y = randi()%height
 	for i in instanciatedPos.size():
 		if instanciatedPos[i] == Vector2(x,y):
-			 n += 1
-	if n <= 0:
+			n = true
+			break
+	if !n:
 		instanciatedPos.append(Vector2(x,y))
 		return Vector2(x,y)
 	else:
-		_get_random_space(array, tile)
+		return _get_random_space(array, tile)
 
 func _generate_floor_map():
 	var map : Array = _initialize_2D_array(width, height, Tiles.WALLS)
