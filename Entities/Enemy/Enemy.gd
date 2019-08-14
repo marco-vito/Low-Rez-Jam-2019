@@ -18,6 +18,7 @@ func _ready():
 	flashlight = get_tree().get_nodes_in_group("flashlight")[0]
 	flashlight.connect("on", self, "_hidden_state")
 	flashlight.connect("off", self, "_moving_state")
+	$Area2D.connect("area_entered", self, "_check_defeat")
 	call_deferred("_update_path")
 
 func _physics_process(delta):
@@ -28,7 +29,7 @@ func _physics_process(delta):
 			_hidden()
 
 func _moving():
-	$BasicSprite.visible = true
+	visible = true
 	if path.size() > 1:
 		var d = global_position.distance_to(path[0])
 		if d > 2:
@@ -40,7 +41,7 @@ func _moving():
 		_update_path()
 		
 func _hidden():
-	$BasicSprite.visible = false
+	visible = false
 
 func _hidden_state():
 	state = States.HIDDEN
@@ -53,3 +54,11 @@ func set_path(value : PoolVector2Array):
 
 func _update_path():
 	set_path(nav.get_simple_path(global_position, player.global_position, false))
+
+func _check_defeat(area):
+	if state == States.MOVING:
+		for area in $Area2D.get_overlapping_areas():
+			if area.get_owner().is_in_group("player"):
+				Global.bodyColor = Color(randf(), randf(), randf())
+				Global.shoesColor = Color(randf(), randf(), randf())
+				get_tree().reload_current_scene()

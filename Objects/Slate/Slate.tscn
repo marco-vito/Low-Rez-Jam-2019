@@ -8,7 +8,7 @@
 [ext_resource path="res://Objects/Slate/SlateLoop.wav" type="AudioStream" id=6]
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=7]
 
-[sub_resource type="AtlasTexture" id=4]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 32, 0 )
 
@@ -25,7 +25,7 @@ message = ""
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 position = Vector2( 0, -16 )
-texture = SubResource( 4 )
+texture = SubResource( 1 )
 region_rect = Rect2( 0, 0, 32, 32 )
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite" index="0"]
