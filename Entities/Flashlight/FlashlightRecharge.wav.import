@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/FlashlightRecharge.wav-3ee96b3b42bce98d9cf258ec1b6c3a99.sample"
+
+[deps]
+
+source_file="res://Entities/Flashlight/FlashlightRecharge.wav"
+dest_files=[ "res://.import/FlashlightRecharge.wav-3ee96b3b42bce98d9cf258ec1b6c3a99.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

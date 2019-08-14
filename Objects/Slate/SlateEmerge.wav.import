@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SlateEmerge.wav-90314952d80049bbbb8c6b767e8c0205.sample"
+
+[deps]
+
+source_file="res://Objects/Slate/SlateEmerge.wav"
+dest_files=[ "res://.import/SlateEmerge.wav-90314952d80049bbbb8c6b767e8c0205.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
