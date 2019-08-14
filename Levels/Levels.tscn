@@ -20,7 +20,6 @@ tile_data = PoolIntArray( 131072, 1, 0, 131075, 1, 0 )
 [node name="YSort" type="YSort" parent="."]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 0.941176 )
 __meta__ = {
 "_edit_lock_": true
