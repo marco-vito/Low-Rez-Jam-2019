@@ -32,6 +32,8 @@ func _physics_process(delta):
 func _input(event):
 	if event.is_action_pressed("pickaxe"):
 		_mine()
+	if event.is_action_pressed("debug"):
+		_mine_all()
 
 func check_interaction():
 	if Input.is_action_just_pressed("interact"):
@@ -70,6 +72,12 @@ func _mine_at(map, pos):
 			Global.audioController.play_sfx(stream, -10)
 			emit_signal("update_map")
 			emit_signal("mined", pos * 16)
+
+func _mine_all():
+	var tilemap = get_tree().get_nodes_in_group("map")[0]
+	for i in 25:
+		for j in 25:
+			_mine_at(tilemap, Vector2(i,j))
 
 func _check_defeat(area):
 	for area in $InteractionArea.get_overlapping_areas():

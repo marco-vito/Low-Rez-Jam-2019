@@ -9,12 +9,12 @@ var dirX = [-1, 1, 0, 0]
 var dirY = [0, 0, 1, -1]
 
 var spawnratesSymbol = { # Avg amount spawned
-	"res://Objects/Slate/Slate.tscn" : 3,
-	"res://Objects/Pointer/Pointer.tscn" : 3,
+	"res://Objects/Slate/Slate.tscn" : 2,
+	"res://Objects/Pointer/Pointer.tscn" : 2,
 }
 
 var spawnratesDirect = {
-	"res://Objects/Crystal/Crystal.tscn" : 3
+	"res://Objects/Crystal/Crystal.tscn" : 2
 }
 
 const TILESIZE = 16
