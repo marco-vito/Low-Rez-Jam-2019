@@ -10,8 +10,8 @@ var dirY = [0, 0, 1, -1]
 
 #Dictionaries to control objects instanciating
 var spawnratesSymbol = { # Avg amount spawned
-	"res://Objects/Slate/Slate.tscn" : 5,
-	"res://Objects/Pointer/Pointer.tscn" : 5,
+	"res://Objects/Slate/Slate.tscn" : 3,
+	"res://Objects/Pointer/Pointer.tscn" : 2,
 }
 
 var spawnratesDirect = {
@@ -38,13 +38,13 @@ func _ready():
 
 func _position_objects(map):
 	for toSpawn in spawnratesSymbol.keys():
-		var amount = randi()%int(spawnratesSymbol[toSpawn] * 1.5)
+		var amount = randi()%int(spawnratesSymbol[toSpawn] * 1.5)+1
 		for i in amount:
 			var symbol = _spawn_at_random_pos(map, "res://Objects/GeneralUseObjects/Symbol/Symbol.tscn", Tiles.WALLS, false)
 			symbol.toInstanciated = load(toSpawn)
 			
 	for toSpawn in spawnratesDirect.keys():
-		var amount = randi()%int(spawnratesDirect[toSpawn] * 1.5)
+		var amount = randi()%int(spawnratesDirect[toSpawn] * 1.5)+1
 		for i in amount:
 			_spawn_at_random_pos(map, toSpawn, Tiles.FLOOR)
 

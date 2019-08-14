@@ -21,7 +21,7 @@ tile_data = PoolIntArray( 0, 2, 0, 1, 2, 0, 2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 
 [node name="Slate" parent="YSort" instance=ExtResource( 4 )]
 position = Vector2( 28.2608, 41.3809 )
 random = false
-message = "Portal activated."
+message = "Day 1X@#: Portal activated"
 
 [node name="Player" parent="YSort" instance=ExtResource( 5 )]
 position = Vector2( 34.2476, 65.2031 )
