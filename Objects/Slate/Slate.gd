@@ -10,7 +10,7 @@ var interactable = true
 
 func _ready():
 	var sound = preload("res://Objects/Slate/SlateEmerge.wav")
-	Global.audioController.play_sfx(sound, -10)
+#	Global.audioController.play_sfx(sound, -10)
 	$Sprite.texture.region.size.y = 0
 	if random:
 		var key = randi()%Global.messages.size()
