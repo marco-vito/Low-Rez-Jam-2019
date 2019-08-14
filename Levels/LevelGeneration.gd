@@ -10,8 +10,8 @@ var dirY = [0, 0, 1, -1]
 
 #Dictionaries to control objects instanciating
 var spawnratesSymbol = { # Avg amount spawned
-	"res://Objects/Slate/Slate.tscn" : 3,
-	"res://Objects/Pointer/Pointer.tscn" : 2,
+	"res://Objects/Slate/Slate.tscn" : 5,
+	"res://Objects/Pointer/Pointer.tscn" : 5,
 }
 
 var spawnratesDirect = {
