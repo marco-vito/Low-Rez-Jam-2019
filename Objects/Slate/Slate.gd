@@ -12,11 +12,7 @@ func _ready():
 	var sound = preload("res://Objects/Slate/SlateEmerge.wav")
 	Global.audioController.play_sfx(sound, -10)
 	$Sprite.texture.region.size.y = 0
-	if random:
-		var key = randi()%Global.messages.size()
-		message = Global.messages[key]
-		Global.messages.erase(key)
-	$CanvasLayer/ColorRect/RichTextLabel.text = message
+	_set_message()
 	
 func _process(delta):
 	if $Sprite.texture.region.size.y < 32:
@@ -39,3 +35,11 @@ func _on_Timer_timeout():
 	$CanvasLayer/ColorRect.visible = false
 	interactable = true
 	Global.audioController.play_sfx(sfx, -10)
+
+func _set_message():
+	if random:
+		Global.messageArray.shuffle()
+		var key = Global.messageArray[0]
+		message = Global.messages[key]
+		Global.messageArray.remove(0)
+	$CanvasLayer/ColorRect/RichTextLabel.text = message
