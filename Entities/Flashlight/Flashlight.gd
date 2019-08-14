@@ -47,6 +47,8 @@ func _deplete_battery():
 		$Timer.stop()
 	
 func _recharge_battery():
+	var sfx = preload("res://Entities/Flashlight/FlashlightRecharge.wav")
+	Global.audioController.play_sfx(sfx, -10)
 	battery = $CanvasLayer/BatteryDisplay.max_value
 	_set_color()
 

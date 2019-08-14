@@ -3,6 +3,10 @@ extends "res://Objects/GeneralUseObjects/Interactable/Interactable.gd"
 func _init():
 	add_to_group("exit")
 
+func _ready():
+	var sfx = preload("res://Objects/Exit/ExitEmerge.wav")
+	Global.audioController.play_sfx(sfx, -10)
+
 func _on_interact(trigger):
 	Global.totalLevels += 1
 	if Global.totalLevels >= 3:
