@@ -8,14 +8,18 @@ export var height = 16
 var dirX = [-1, 1, 0, 0]
 var dirY = [0, 0, 1, -1]
 
+#Dictionaries to control objects instanciating
 var spawnratesSymbol = { # Avg amount spawned
-	"res://Objects/Slate/Slate.tscn" : 2,
+	"res://Objects/Slate/Slate.tscn" : 3,
 	"res://Objects/Pointer/Pointer.tscn" : 2,
 }
 
 var spawnratesDirect = {
 	"res://Objects/Crystal/Crystal.tscn" : 2
 }
+
+#Array to check if a chosen position to instanciate an object is already used
+var instanciatedPos = []
 
 const TILESIZE = 16
 enum Tiles {FLOOR = 1, WALLS = 0, BORDERS = 2}
@@ -55,13 +59,20 @@ func _spawn_at_random_pos(map, path_to_node, tile, ysort : bool = true):
 	return object
 
 func _get_random_space(array, tile):
-	# @TODO check for instance at position
 	var x = randi()%width
 	var y = randi()%height
+	var n = 0
 	while (array[x][y] != tile):
 		x = randi()%width
 		y = randi()%height
-	return Vector2(x,y)
+	for i in instanciatedPos.size():
+		if instanciatedPos[i] == Vector2(x,y):
+			 n += 1
+	if n <= 0:
+		instanciatedPos.append(Vector2(x,y))
+		return Vector2(x,y)
+	else:
+		_get_random_space(array, tile)
 
 func _generate_floor_map():
 	var map : Array = _initialize_2D_array(width, height, Tiles.WALLS)
