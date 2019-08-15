@@ -1,14 +1,14 @@
 extends "res://Entities/Entity.gd"
 
 enum States {HIDDEN, MOVING}
-var state = States.HIDDEN
+var state = States.MOVING
 
 var flashlight
 var player
 var nav
 
 var path = PoolVector2Array() setget set_path
-var speed = 10
+var speed = 5
 
 func _ready():
 	add_to_group("enemy")
@@ -33,7 +33,7 @@ func _moving():
 	if path.size() > 1:
 		var d = global_position.distance_to(path[0])
 		if d > 2:
-			direction = global_position - path[0]
+			direction = global_position.direction_to(path[0])
 			move()
 		else:
 			path.remove(0)
