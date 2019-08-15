@@ -5,11 +5,8 @@ export (PackedScene) var toInstanciated
 onready var flashlight = get_tree().get_nodes_in_group("flashlight")[0]
 var player
 
-#Variable to control if the object is on the light or not
-var illuminated : bool = true setget _SetIlluminated
-
 func _ready():
-	_SetIlluminated(true)
+	_set_visibility(true)
 	player = get_tree().get_nodes_in_group("player")[0]
 	player.connect("mined", self, "_make_visible")
 	call_deferred("_assign_exit")
@@ -20,12 +17,8 @@ func _assign_exit():
 		add_to_group("exit")
 
 #Function to control if the sign is visible or not. It should only be visible in the dark.
-func _SetIlluminated(parameter : bool):
-	illuminated = parameter
-	if parameter:
-		visible = false
-	else:
-		visible = true
+func _set_visibility(flashlight : bool):
+	visible = not flashlight
 
 #Makes symbol disappear and the object it carries be instanciated:
 func _on_interact(trigger):
@@ -38,5 +31,6 @@ func _on_interact(trigger):
 #Makes the symbol invisible while the wall wasn't mined:
 func _make_visible(pos):
 	if (global_position.x >= pos.x and global_position.y >= pos.y) and (global_position.x <= pos.x+16 and global_position.y <= pos.y+16):
-		flashlight.connect("on", self, "_SetIlluminated", [true])
-		flashlight.connect("off", self, "_SetIlluminated", [false])
+		flashlight.connect("on", self, "_set_visibility", [true])
+		flashlight.connect("off", self, "_set_visibility", [false])
+		_set_visibility(flashlight.visible)
