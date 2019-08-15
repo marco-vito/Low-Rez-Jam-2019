@@ -81,6 +81,7 @@ func _mine_all():
 			_mine_at(tilemap, Vector2(i,j))
 	
 func _new_step_sound():
-	var stream = load("res://Entities/Player/SoundEffects/PlayerStep"+str(randi()%3+1)+".wav")
-	$StepSound.stream = stream
-	$StepSound.play()
+	if state == States.MOVING:
+		var stream = load("res://Entities/Player/SoundEffects/PlayerStep"+str(randi()%3+1)+".wav")
+		$StepSound.stream = stream
+		$StepSound.play()
