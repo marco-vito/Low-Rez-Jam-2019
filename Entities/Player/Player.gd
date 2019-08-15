@@ -15,6 +15,7 @@ func _ready():
 	$Sprites/Body.modulate = Global.bodyColor
 	$Sprites/FootBack.modulate = Global.shoesColor
 	$Sprites/FootFront.modulate = Global.shoesColor
+	$StepTimer.connect("timeout", self, "_new_step_sound")
 
 func _physics_process(delta):
 	check_input()
@@ -26,7 +27,6 @@ func _physics_process(delta):
 		States.MOVING:
 			move()
 			$Sprites/AnimationPlayer.play("walk")
-			_new_step_sound()
 
 func _input(event):
 	if event.is_action_pressed("pickaxe"):
@@ -49,6 +49,8 @@ func check_input():
 func check_movement():
 	if direction != Vector2(0,0):
 		state = States.MOVING
+		if $StepTimer.time_left == 0:
+			$StepTimer.start()
 	else:
 		state = States.IDLE
 
@@ -79,7 +81,6 @@ func _mine_all():
 			_mine_at(tilemap, Vector2(i,j))
 	
 func _new_step_sound():
-	if !$StepSound.playing:
-		var stream = load("res://Entities/Player/SoundEffects/PlayerStep"+str(randi()%3+1)+".wav")
-		$StepSound.stream = stream
-		$StepSound.play()
+	var stream = load("res://Entities/Player/SoundEffects/PlayerStep"+str(randi()%3+1)+".wav")
+	$StepSound.stream = stream
+	$StepSound.play()
