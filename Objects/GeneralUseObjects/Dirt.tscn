@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Objects/GeneralUseObjects/OneShot.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+emission_shape = 2
+emission_box_extents = Vector3( 8, 8, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 50.0
+scale = 5.0
+scale_curve = SubResource( 2 )
+color = Color( 0.145098, 0.0745098, 0, 1 )
+
+[node name="Dirt" type="Particles2D"]
+z_index = 100
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource( 3 )
+script = ExtResource( 1 )

@@ -16,6 +16,13 @@ func _ready():
 	$Sprites/FootBack.modulate = Global.shoesColor
 	$Sprites/FootFront.modulate = Global.shoesColor
 	$StepTimer.connect("timeout", self, "_new_step_sound")
+	connect("mined", self, "_spawn_dirt")
+
+func _spawn_dirt(where):
+	var dirt = preload("res://Objects/GeneralUseObjects/Dirt.tscn").instance()
+	dirt.global_position = where
+	get_tree().get_root().get_node("Level").add_child(dirt)
+	dirt.emitting = true
 
 func _physics_process(delta):
 	check_input()
