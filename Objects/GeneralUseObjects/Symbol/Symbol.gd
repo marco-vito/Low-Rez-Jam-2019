@@ -11,6 +11,10 @@ func _ready():
 	player.connect("mined", self, "_make_visible")
 	call_deferred("_assign_exit")
 
+func _input(event):
+	if event.is_action_pressed("print"):
+		print(get_name()+" position x: "+str(global_position.x)+" position y: "+str(global_position.y))
+	
 #Function to assign the "exit" group value that'll be found by the Pointer
 func _assign_exit():
 	if toInstanciated == preload("res://Objects/Exit/Exit.tscn"):
@@ -30,7 +34,9 @@ func _on_interact(trigger):
 	
 #Makes the symbol invisible while the wall wasn't mined:
 func _make_visible(pos):
+	print("Tile mined in position x: "+str(pos.x)+" and position y: "+str(pos.y))
 	if (global_position.x >= pos.x and global_position.y >= pos.y) and (global_position.x <= pos.x+16 and global_position.y <= pos.y+16):
 		flashlight.connect("on", self, "_set_visibility", [true])
 		flashlight.connect("off", self, "_set_visibility", [false])
 		_set_visibility(flashlight.visible)
+		print(get_name()+" is visible")
