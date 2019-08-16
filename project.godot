@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="To the Core"
 run/main_scene="res://MainScenes/Intro.tscn"
-config/icon="res://icon.png"
+config/icon="res://MainScenes/Earf.png"
 
 [autoload]
 
