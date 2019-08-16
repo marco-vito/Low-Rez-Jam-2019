@@ -40,11 +40,3 @@ var messages = { 0 : "EXODUS preparation complete",
 				18 : "EXODUS list: at capacity",
 				19 : "Order: abandon Earth"
 }
-
-#variables to control credits
-
-var credits = { "gateway" : "",
-				"computer" : ""
-}
-
-var credit = ""

@@ -31,3 +31,5 @@ position = Vector2( 58.8611, 41.0629 )
 
 [node name="Gateway" parent="YSort" instance=ExtResource( 7 )]
 position = Vector2( 83.3074, 40.0759 )
+
+[editable path="YSort/Player"]
