@@ -45,10 +45,14 @@ func _hidden():
 
 func _hidden_state():
 	state = States.HIDDEN
+	Global.audioController.play_sfx(preload("res://Entities/Enemy/SpiderVanish.wav"), -10)
 	_burrow()
+	$AudioStreamPlayer2D.stop()
 
 func _moving_state():
 	state = States.MOVING
+	Global.audioController.play_sfx(preload("res://Entities/Enemy/SpiderEmerge.wav"), -10)
+	$AudioStreamPlayer2D.play()
 
 func set_path(value : PoolVector2Array):
     path = value

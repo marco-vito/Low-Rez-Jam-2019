@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SpiderVanish.wav-19f677409fc714b86db26eea874d6ccd.sample"
+
+[deps]
+
+source_file="res://Entities/Enemy/SpiderVanish.wav"
+dest_files=[ "res://.import/SpiderVanish.wav-19f677409fc714b86db26eea874d6ccd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
