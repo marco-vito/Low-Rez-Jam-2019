@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Objects/Pointer/Pointer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Objects/Slate/Slate.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Entities/Enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Objects/GeneralUseObjects/AudioController/AudioController.tscn" type="PackedScene" id=10]
 
 [node name="Test" type="Node2D"]
 
@@ -45,3 +46,6 @@ toInstanciated = ExtResource( 8 )
 position = Vector2( 93, 24 )
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 65, 16 )
+
+[node name="AudioController" parent="." instance=ExtResource( 10 )]

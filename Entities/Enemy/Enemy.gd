@@ -45,6 +45,7 @@ func _hidden():
 
 func _hidden_state():
 	state = States.HIDDEN
+	_burrow()
 
 func _moving_state():
 	state = States.MOVING
@@ -62,3 +63,9 @@ func _check_defeat(area):
 				Global.bodyColor = Color(randf(), randf(), randf())
 				Global.shoesColor = Color(randf(), randf(), randf())
 				get_tree().reload_current_scene()
+
+func _burrow():
+	var particle = preload("res://Objects/Particles/Burrowing.tscn").instance()
+	particle.global_position = global_position
+	get_tree().get_root().add_child(particle)
+	particle.emitting = true

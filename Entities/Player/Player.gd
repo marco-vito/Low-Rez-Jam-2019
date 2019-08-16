@@ -19,7 +19,7 @@ func _ready():
 	connect("mined", self, "_spawn_dirt")
 
 func _spawn_dirt(where):
-	var dirt = preload("res://Objects/GeneralUseObjects/Dirt.tscn").instance()
+	var dirt = preload("res://Objects/Particles/Dirt.tscn").instance()
 	dirt.global_position = where
 	get_tree().get_root().get_node("Level").add_child(dirt)
 	dirt.emitting = true
