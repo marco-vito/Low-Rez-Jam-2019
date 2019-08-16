@@ -58,8 +58,10 @@ func check_movement():
 		state = States.MOVING
 		if $StepTimer.time_left == 0:
 			$StepTimer.start()
+		$StepTimer.wait_time = 1.2
 	else:
 		state = States.IDLE
+		$StepTimer.wait_time = 0.1
 
 func recharge_battery():
 	emit_signal("recharged")
