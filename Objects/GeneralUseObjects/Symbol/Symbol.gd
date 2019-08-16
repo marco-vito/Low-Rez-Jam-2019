@@ -34,7 +34,8 @@ func _on_interact(trigger):
 	
 #Makes the symbol invisible while the wall wasn't mined:
 func _make_visible(pos):
-	print("Tile mined in position x: "+str(pos.x)+" and position y: "+str(pos.y))
+	pos.x = round(pos.x)*16
+	pos.y = round(pos.y)*16
 	if (global_position.x >= pos.x and global_position.y >= pos.y) and (global_position.x <= pos.x+16 and global_position.y <= pos.y+16):
 		flashlight.connect("on", self, "_set_visibility", [true])
 		flashlight.connect("off", self, "_set_visibility", [false])

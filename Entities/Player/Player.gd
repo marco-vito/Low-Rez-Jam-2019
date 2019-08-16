@@ -74,14 +74,14 @@ func _mine():
 		_mine_at(tilemap, (global_position + direction.normalized() * 16) / 16)
 
 func _mine_at(map, pos):
-	 var cell = map.get_cellv(pos)
-		if cell == 0:
-			map.set_cellv(pos, 1)
-			map.update_bitmask_region()
-			var stream = load("res://Entities/Player/SoundEffects/WallBreak"+str(randi()%2+1)+".wav")
-			Global.audioController.play_sfx(stream, -10)
-			emit_signal("update_map")
-			emit_signal("mined", pos * 16)
+	var cell = map.get_cellv(pos)
+	if cell == 0:
+		map.set_cellv(pos, 1)
+		map.update_bitmask_region()
+		var stream = load("res://Entities/Player/SoundEffects/WallBreak"+str(randi()%2+1)+".wav")
+		Global.audioController.play_sfx(stream, -10)
+		emit_signal("update_map")
+		emit_signal("mined", pos)
 
 func _mine_all():
 	var tilemap = get_tree().get_nodes_in_group("map")[0]
