@@ -36,7 +36,7 @@ func _on_interact(trigger):
 func _make_visible(pos):
 	pos.x = round(pos.x)*16
 	pos.y = round(pos.y)*16
-	if (global_position.x >= pos.x-8 and global_position.y >= pos.y-8) and (global_position.x <= pos.x+24 and global_position.y <= pos.y+24):
+	if (global_position.x >= pos.x and global_position.y >= pos.y) and (global_position.x <= pos.x+24 and global_position.y <= pos.y+24):
 		flashlight.connect("on", self, "_set_visibility", [true])
 		flashlight.connect("off", self, "_set_visibility", [false])
 		_set_visibility(flashlight.visible)
