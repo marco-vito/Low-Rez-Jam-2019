@@ -28,7 +28,7 @@ func _ready():
 	$YSort.add_to_group("ysort")
 	$Symbols.add_to_group("symbol")
 	var mapArray = _generate_floor_map()
-	var fireflies = preload("res://Objects/GeneralUseObjects/Fireflies.tscn").instance()
+	var fireflies = preload("res://Objects/Particles/Fireflies.tscn").instance()
 	fireflies.global_position = Vector2((width * 16) / 2, (height * 16) / 2)
 	get_tree().get_root().get_node("Level").add_child(fireflies)
 	_spawn_at_random_pos(mapArray, "res://Entities/Player/Player.tscn", Tiles.FLOOR)
