@@ -9,7 +9,9 @@ func _ready():
 
 func _on_interact(trigger):
 	Global.totalLevels += 1
+	var stream = preload("res://Levels/StairsTransition.wav")
+	var transition = get_tree().get_nodes_in_group("transition")[0]
 	if Global.totalLevels >= 3:
-		get_tree().change_scene("res://Levels/FinalRoom.tscn")
+		transition.transition(stream, "res://Levels/FinalRoom.tscn")
 	else:
-		get_tree().reload_current_scene()
+		transition.transition(stream, "res://Levels/Levels.tscn")

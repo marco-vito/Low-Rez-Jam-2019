@@ -66,7 +66,8 @@ func _check_defeat(area):
 			if area.get_owner().is_in_group("player"):
 				Global.bodyColor = Color(randf(), randf(), randf())
 				Global.shoesColor = Color(randf(), randf(), randf())
-				get_tree().reload_current_scene()
+				get_tree().get_nodes_in_group("transition")[0].transition(preload("res://Levels/DeathTransition.wav"), "res://Levels/Levels.tscn")
+
 
 func _burrow():
 	var particle = preload("res://Objects/Particles/Burrowing.tscn").instance()

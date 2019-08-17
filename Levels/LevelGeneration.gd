@@ -25,6 +25,7 @@ const TILESIZE = 16
 enum Tiles {FLOOR = 1, WALLS = 0, BORDERS = 2}
 
 func _ready():
+	add_to_group("level")
 	$YSort.add_to_group("ysort")
 	$Symbols.add_to_group("symbol")
 	var mapArray = _generate_floor_map()

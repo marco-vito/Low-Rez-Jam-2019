@@ -22,6 +22,7 @@ config/icon="res://MainScenes/Earf256.png"
 [autoload]
 
 Global="*res://Objects/GeneralUseObjects/Global.gd"
+Transition="*res://Levels/Transition.tscn"
 
 [display]
 
