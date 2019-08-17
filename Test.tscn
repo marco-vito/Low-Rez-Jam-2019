@@ -3,12 +3,12 @@
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://Entities/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Objects/GeneralUseObjects/Camera/Camera.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Objects/RechargeStation/RechargeStation.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Objects/Crystal/Crystal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Objects/GeneralUseObjects/Symbol/Symbol.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Objects/Pointer/Pointer.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Objects/Slate/Slate.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Entities/Enemy/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/Enemy/Enemy.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Objects/RechargeStation/RechargeStation.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Objects/Crystal/Crystal.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Objects/GeneralUseObjects/Symbol/Symbol.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Objects/Pointer/Pointer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Objects/Slate/Slate.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Objects/GeneralUseObjects/AudioController/AudioController.tscn" type="PackedScene" id=10]
 
 [node name="Test" type="Node2D"]
@@ -24,28 +24,28 @@ position = Vector2( 47, 36 )
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 
-[node name="RechargeStation" parent="." instance=ExtResource( 4 )]
+[node name="Enemy" parent="." instance=ExtResource( 4 )]
+position = Vector2( 47, 39 )
+scale = Vector2( 2.48438, 2.20313 )
+
+[node name="RechargeStation" parent="." instance=ExtResource( 5 )]
 position = Vector2( 17, 53 )
 
-[node name="Crystal" parent="." instance=ExtResource( 5 )]
+[node name="Crystal" parent="." instance=ExtResource( 6 )]
 position = Vector2( 14, 8 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
 color = Color( 0, 0, 0, 1 )
 
-[node name="Signal" parent="." instance=ExtResource( 6 )]
+[node name="Signal" parent="." instance=ExtResource( 7 )]
 position = Vector2( 17, 90 )
-toInstanciated = ExtResource( 7 )
-
-[node name="Signal2" parent="." instance=ExtResource( 6 )]
-position = Vector2( 101, 82 )
 toInstanciated = ExtResource( 8 )
 
-[node name="Signal3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 93, 24 )
+[node name="Signal2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 101, 82 )
+toInstanciated = ExtResource( 9 )
 
-[node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 65, 16 )
+[node name="Signal3" parent="." instance=ExtResource( 7 )]
+position = Vector2( 93, 24 )
 
 [node name="AudioController" parent="." instance=ExtResource( 10 )]

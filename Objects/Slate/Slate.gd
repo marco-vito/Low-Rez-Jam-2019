@@ -11,14 +11,7 @@ var interactable = true
 func _ready():
 	var sound = preload("res://Objects/Slate/SlateEmerge.wav")
 	Global.audioController.play_sfx(sound, -10)
-	$Sprite.texture.region.size.y = 0
 	_set_message()
-	
-func _process(delta):
-	if $Sprite.texture.region.size.y < 32:
-		$Sprite.texture.region.size.y += 1
-	else:
-		$LightOccluder2D.visible = true
 
 func _on_interact(trigger):
 	if interactable:
