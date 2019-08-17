@@ -20,7 +20,7 @@ func _ready():
 
 func _spawn_dirt(where):
 	var dirt = preload("res://Objects/Particles/Dirt.tscn").instance()
-	dirt.global_position = where
+	dirt.global_position = where * 16
 	get_tree().get_root().get_node("Level").add_child(dirt)
 
 func _physics_process(delta):
